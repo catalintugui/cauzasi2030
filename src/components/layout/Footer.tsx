@@ -15,6 +15,7 @@ export function Footer() {
         <footer className="site-footer">
             <div className="footer-brand-row">
                 <a
+                    aria-label={siteContent.site.fullName}
                     className="footer-brand"
                     href="#cauzasi-2030"
                     onClick={scrollToTop}
@@ -25,11 +26,15 @@ export function Footer() {
                         alt=""
                         aria-hidden="true"
                     />
-                    {siteContent.site.fullName}
+                    <span className="footer-brand-name">
+                        {siteContent.site.fullName}
+                    </span>
                 </a>
                 <p>
-                    © {year} {siteContent.footer.copyrightHolder}.{" "}
-                    {siteContent.footer.rights}
+                    © {year} {siteContent.footer.copyrightHolder}
+                    <span className="footer-rights">
+                        . {siteContent.footer.rights}
+                    </span>
                 </p>
             </div>
             <SocialLinks variant="footer" />

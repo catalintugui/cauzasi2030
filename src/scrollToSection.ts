@@ -33,23 +33,31 @@ function cancelSmoothScroll(scrollRoot?: HTMLElement | null) {
     }
 }
 
-function animateScrollTo(
+function attachUserIntentListeners(
+    scrollRoot: HTMLElement,
+    onUserIntent: () => void,
+) {
+    scrollRoot.addEventListener("wheel", onUserIntent, { passive: true });
+    scrollRoot.addEventListener("touchstart", onUserIntent, { passive: true });
+    scrollRoot.addEventListener("keydown", onUserIntent);
+}
+
+function detachUserIntentListeners(
+    scrollRoot: HTMLElement,
+    onUserIntent: () => void,
+) {
+    scrollRoot.removeEventListener("wheel", onUserIntent);
+    scrollRoot.removeEventListener("touchstart", onUserIntent);
+    scrollRoot.removeEventListener("keydown", onUserIntent);
+}
+
+function animateScrollToWithRaf(
     scrollRoot: HTMLElement,
     targetTop: number,
     onComplete: () => void,
 ) {
-    cancelSmoothScroll(scrollRoot);
-
     const startTop = scrollRoot.scrollTop;
     const distance = targetTop - startTop;
-
-    if (Math.abs(distance) < 1) {
-        onComplete();
-        return;
-    }
-
-    setSmoothScrolling(scrollRoot, true);
-
     const duration = Math.min(
         900,
         Math.max(350, Math.abs(distance) * 0.55),
@@ -61,12 +69,6 @@ function animateScrollTo(
         setSmoothScrolling(scrollRoot, false);
     };
 
-    const cleanupListeners = () => {
-        scrollRoot.removeEventListener("wheel", onUserIntent);
-        scrollRoot.removeEventListener("touchstart", onUserIntent);
-        scrollRoot.removeEventListener("keydown", onUserIntent);
-    };
-
     const onUserIntent = () => {
         if (cancelled) {
             return;
@@ -74,18 +76,16 @@ function animateScrollTo(
 
         cancelled = true;
         cancelSmoothScroll(scrollRoot);
-        cleanupListeners();
+        detachUserIntentListeners(scrollRoot, onUserIntent);
         window.dispatchEvent(new CustomEvent("sectionnavigatecomplete"));
     };
 
-    scrollRoot.addEventListener("wheel", onUserIntent, { passive: true });
-    scrollRoot.addEventListener("touchstart", onUserIntent, { passive: true });
-    scrollRoot.addEventListener("keydown", onUserIntent);
+    attachUserIntentListeners(scrollRoot, onUserIntent);
 
     cancelActiveScroll = () => {
         cancelled = true;
         finish();
-        cleanupListeners();
+        detachUserIntentListeners(scrollRoot, onUserIntent);
     };
 
     const step = (now: number) => {
@@ -105,13 +105,92 @@ function animateScrollTo(
 
         activeScrollAnimation = null;
         cancelActiveScroll = null;
-        cleanupListeners();
+        detachUserIntentListeners(scrollRoot, onUserIntent);
         scrollRoot.scrollTop = targetTop;
         finish();
         onComplete();
     };
 
     activeScrollAnimation = requestAnimationFrame(step);
+}
+
+function animateScrollToWithNative(
+    scrollRoot: HTMLElement,
+    targetTop: number,
+    onComplete: () => void,
+) {
+    let cancelled = false;
+
+    const finish = () => {
+        setSmoothScrolling(scrollRoot, false);
+    };
+
+    const complete = () => {
+        if (cancelled) {
+            return;
+        }
+
+        cancelled = true;
+        cancelActiveScroll = null;
+        scrollRoot.removeEventListener("scrollend", onScrollEnd);
+        detachUserIntentListeners(scrollRoot, onUserIntent);
+        scrollRoot.scrollTop = targetTop;
+        finish();
+        onComplete();
+    };
+
+    const onUserIntent = () => {
+        if (cancelled) {
+            return;
+        }
+
+        cancelled = true;
+        cancelSmoothScroll(scrollRoot);
+        scrollRoot.removeEventListener("scrollend", onScrollEnd);
+        detachUserIntentListeners(scrollRoot, onUserIntent);
+        window.dispatchEvent(new CustomEvent("sectionnavigatecomplete"));
+    };
+
+    const onScrollEnd = () => {
+        complete();
+    };
+
+    attachUserIntentListeners(scrollRoot, onUserIntent);
+    scrollRoot.addEventListener("scrollend", onScrollEnd);
+
+    cancelActiveScroll = () => {
+        cancelled = true;
+        finish();
+        scrollRoot.removeEventListener("scrollend", onScrollEnd);
+        detachUserIntentListeners(scrollRoot, onUserIntent);
+    };
+
+    scrollRoot.scrollTo({ top: targetTop, behavior: "smooth" });
+}
+
+function animateScrollTo(
+    scrollRoot: HTMLElement,
+    targetTop: number,
+    onComplete: () => void,
+) {
+    cancelSmoothScroll(scrollRoot);
+
+    const startTop = scrollRoot.scrollTop;
+    const distance = targetTop - startTop;
+
+    if (Math.abs(distance) < 1) {
+        onComplete();
+        return;
+    }
+
+    setSmoothScrolling(scrollRoot, true);
+
+    if ("onscrollend" in scrollRoot) {
+        animateScrollToWithNative(scrollRoot, targetTop, onComplete);
+        return;
+    }
+
+    animateScrollToWithRaf(scrollRoot, targetTop, onComplete);
 }
 
 function dispatchSectionNavigate(

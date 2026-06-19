@@ -10,6 +10,7 @@ export function SocialLinks({ variant = "cards" }: SocialLinksProps) {
         <div className={variant === "cards" ? "channel-list" : "footer-social"}>
             {siteContent.contact.channels.map((channel) => (
                 <a
+                    aria-label={variant === "footer" ? channel.title : undefined}
                     href={channel.href}
                     key={channel.title}
                     rel="noreferrer"
