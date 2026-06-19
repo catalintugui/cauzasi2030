@@ -1,44 +1,8 @@
 import { useEffect, useRef, useState } from "react";
+import { getActiveSectionFromScrollPosition } from "../sectionScroll";
 import { sectionIds, type SectionId } from "../sectionIds";
 
-const FORWARD_THRESHOLD = 0.38;
-const BACKWARD_THRESHOLD = 0.12;
-
-function getActiveSectionFromScroll(
-    scrollRoot: HTMLElement,
-    currentId: SectionId,
-): SectionId {
-    const { scrollTop, clientHeight } = scrollRoot;
-
-    if (clientHeight <= 0) {
-        return sectionIds[0];
-    }
-
-    const ratio = scrollTop / clientHeight;
-    const currentIndex = sectionIds.indexOf(currentId);
-
-    if (currentIndex < 0) {
-        return sectionIds[
-            Math.min(
-                sectionIds.length - 1,
-                Math.max(0, Math.round(ratio)),
-            )
-        ];
-    }
-
-    if (
-        currentIndex < sectionIds.length - 1 &&
-        ratio > currentIndex + FORWARD_THRESHOLD
-    ) {
-        return sectionIds[currentIndex + 1];
-    }
-
-    if (currentIndex > 0 && ratio < currentIndex - BACKWARD_THRESHOLD) {
-        return sectionIds[currentIndex - 1];
-    }
-
-    return currentId;
-}
+const SCROLL_SETTLE_MS = 160;
 
 export function useActiveSection(scrollRootSelector = ".snap-scroll-container") {
     const [activeId, setActiveId] = useState<SectionId>(sectionIds[0]);
@@ -51,24 +15,38 @@ export function useActiveSection(scrollRootSelector = ".snap-scroll-container") 
             return;
         }
 
-        const updateActiveSection = () => {
+        let settleTimer: ReturnType<typeof setTimeout> | undefined;
+        const supportsScrollEnd = "onscrollend" in scrollRoot;
+
+        const applyActiveSection = (nextId: SectionId) => {
+            setActiveId((current) => (current === nextId ? current : nextId));
+        };
+
+        const syncActiveSection = () => {
             if (pendingSectionRef.current) {
                 return;
             }
 
-            setActiveId((current) => {
-                const nextId = getActiveSectionFromScroll(scrollRoot, current);
-                return nextId === current ? current : nextId;
-            });
+            applyActiveSection(getActiveSectionFromScrollPosition(scrollRoot));
         };
 
-        const releasePendingNavigation = () => {
-            if (!pendingSectionRef.current) {
+        const onScrollSettled = () => {
+            syncActiveSection();
+        };
+
+        const scheduleScrollSettle = () => {
+            clearTimeout(settleTimer);
+            settleTimer = setTimeout(onScrollSettled, SCROLL_SETTLE_MS);
+        };
+
+        const onScroll = () => {
+            if (pendingSectionRef.current) {
                 return;
             }
 
-            pendingSectionRef.current = null;
-            updateActiveSection();
+            if (!supportsScrollEnd) {
+                scheduleScrollSettle();
+            }
         };
 
         const onSectionNavigate = (event: Event) => {
@@ -83,29 +61,44 @@ export function useActiveSection(scrollRootSelector = ".snap-scroll-container") 
                 return;
             }
 
-            setActiveId(sectionId);
-
-            if (lockUntilScrollEnd) {
-                pendingSectionRef.current = sectionId;
-            } else {
-                pendingSectionRef.current = null;
-            }
+            clearTimeout(settleTimer);
+            applyActiveSection(sectionId);
+            pendingSectionRef.current = lockUntilScrollEnd ? sectionId : null;
         };
 
-        updateActiveSection();
+        const onSectionNavigateComplete = () => {
+            pendingSectionRef.current = null;
+        };
 
-        scrollRoot.addEventListener("scroll", updateActiveSection, {
-            passive: true,
-        });
-        scrollRoot.addEventListener("scrollend", releasePendingNavigation);
-        window.addEventListener("resize", updateActiveSection);
+        syncActiveSection();
+
+        scrollRoot.addEventListener("scroll", onScroll, { passive: true });
+
+        if (supportsScrollEnd) {
+            scrollRoot.addEventListener("scrollend", onScrollSettled);
+        }
+
+        window.addEventListener("resize", syncActiveSection);
         window.addEventListener("sectionnavigate", onSectionNavigate);
+        window.addEventListener(
+            "sectionnavigatecomplete",
+            onSectionNavigateComplete,
+        );
 
         return () => {
-            scrollRoot.removeEventListener("scroll", updateActiveSection);
-            scrollRoot.removeEventListener("scrollend", releasePendingNavigation);
-            window.removeEventListener("resize", updateActiveSection);
+            clearTimeout(settleTimer);
+            scrollRoot.removeEventListener("scroll", onScroll);
+
+            if (supportsScrollEnd) {
+                scrollRoot.removeEventListener("scrollend", onScrollSettled);
+            }
+
+            window.removeEventListener("resize", syncActiveSection);
             window.removeEventListener("sectionnavigate", onSectionNavigate);
+            window.removeEventListener(
+                "sectionnavigatecomplete",
+                onSectionNavigateComplete,
+            );
         };
     }, [scrollRootSelector]);
 
