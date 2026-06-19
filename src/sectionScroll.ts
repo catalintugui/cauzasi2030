@@ -1,5 +1,15 @@
 import { sectionIds, type SectionId } from "./sectionIds";
 
+export function getSectionScrollTop(
+    scrollRoot: HTMLElement,
+    section: HTMLElement,
+): number {
+    const rootRect = scrollRoot.getBoundingClientRect();
+    const sectionRect = section.getBoundingClientRect();
+
+    return scrollRoot.scrollTop + (sectionRect.top - rootRect.top);
+}
+
 export function getActiveSectionFromScrollPosition(
     scrollRoot: HTMLElement,
 ): SectionId {
@@ -38,5 +48,7 @@ export function isAtSection(
         return false;
     }
 
-    return Math.abs(scrollRoot.scrollTop - section.offsetTop) <= tolerance;
+    const targetTop = getSectionScrollTop(scrollRoot, section);
+
+    return Math.abs(scrollRoot.scrollTop - targetTop) <= tolerance;
 }

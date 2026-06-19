@@ -1,7 +1,4 @@
-import {
-    getActiveSectionFromScrollPosition,
-    isAtSection,
-} from "./sectionScroll";
+import { getSectionScrollTop, isAtSection } from "./sectionScroll";
 import { sectionIds, type SectionId } from "./sectionIds";
 
 type SectionNavigateDetail = {
@@ -18,13 +15,21 @@ function easeInOutCubic(progress: number): number {
         : 1 - Math.pow(-2 * progress + 2, 3) / 2;
 }
 
-function cancelSmoothScroll() {
+function setSmoothScrolling(scrollRoot: HTMLElement, enabled: boolean) {
+    scrollRoot.classList.toggle("is-smooth-scrolling", enabled);
+}
+
+function cancelSmoothScroll(scrollRoot?: HTMLElement | null) {
     cancelActiveScroll?.();
     cancelActiveScroll = null;
 
     if (activeScrollAnimation !== null) {
         cancelAnimationFrame(activeScrollAnimation);
         activeScrollAnimation = null;
+    }
+
+    if (scrollRoot) {
+        setSmoothScrolling(scrollRoot, false);
     }
 }
 
@@ -33,15 +38,17 @@ function animateScrollTo(
     targetTop: number,
     onComplete: () => void,
 ) {
-    cancelSmoothScroll();
+    cancelSmoothScroll(scrollRoot);
 
     const startTop = scrollRoot.scrollTop;
     const distance = targetTop - startTop;
 
-    if (distance === 0) {
+    if (Math.abs(distance) < 1) {
         onComplete();
         return;
     }
+
+    setSmoothScrolling(scrollRoot, true);
 
     const duration = Math.min(
         900,
@@ -49,6 +56,10 @@ function animateScrollTo(
     );
     const startTime = performance.now();
     let cancelled = false;
+
+    const finish = () => {
+        setSmoothScrolling(scrollRoot, false);
+    };
 
     const cleanupListeners = () => {
         scrollRoot.removeEventListener("wheel", onUserIntent);
@@ -62,7 +73,7 @@ function animateScrollTo(
         }
 
         cancelled = true;
-        cancelSmoothScroll();
+        cancelSmoothScroll(scrollRoot);
         cleanupListeners();
         window.dispatchEvent(new CustomEvent("sectionnavigatecomplete"));
     };
@@ -73,6 +84,7 @@ function animateScrollTo(
 
     cancelActiveScroll = () => {
         cancelled = true;
+        finish();
         cleanupListeners();
     };
 
@@ -95,6 +107,7 @@ function animateScrollTo(
         cancelActiveScroll = null;
         cleanupListeners();
         scrollRoot.scrollTop = targetTop;
+        finish();
         onComplete();
     };
 
@@ -137,7 +150,7 @@ export function scrollToSection(
         return;
     }
 
-    const targetTop = section.offsetTop;
+    const targetTop = getSectionScrollTop(scrollRoot, section);
     const needsScroll = !isAtSection(scrollRoot, sectionId);
     const prefersReducedMotion = window.matchMedia(
         "(prefers-reduced-motion: reduce)",
@@ -148,7 +161,7 @@ export function scrollToSection(
     window.history.replaceState(null, "", `#${sectionId}`);
 
     if (!useSmoothScroll) {
-        cancelSmoothScroll();
+        cancelSmoothScroll(scrollRoot);
         scrollRoot.scrollTop = targetTop;
         dispatchSectionNavigate(sectionId, false);
         return;
