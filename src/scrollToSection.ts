@@ -15,10 +15,6 @@ function easeInOutCubic(progress: number): number {
         : 1 - Math.pow(-2 * progress + 2, 3) / 2;
 }
 
-function setSmoothScrolling(scrollRoot: HTMLElement, enabled: boolean) {
-    scrollRoot.classList.toggle("is-smooth-scrolling", enabled);
-}
-
 function cancelSmoothScroll(scrollRoot?: HTMLElement | null) {
     cancelActiveScroll?.();
     cancelActiveScroll = null;
@@ -26,10 +22,6 @@ function cancelSmoothScroll(scrollRoot?: HTMLElement | null) {
     if (activeScrollAnimation !== null) {
         cancelAnimationFrame(activeScrollAnimation);
         activeScrollAnimation = null;
-    }
-
-    if (scrollRoot) {
-        setSmoothScrolling(scrollRoot, false);
     }
 }
 
@@ -65,10 +57,6 @@ function animateScrollToWithRaf(
     const startTime = performance.now();
     let cancelled = false;
 
-    const finish = () => {
-        setSmoothScrolling(scrollRoot, false);
-    };
-
     const onUserIntent = () => {
         if (cancelled) {
             return;
@@ -84,7 +72,6 @@ function animateScrollToWithRaf(
 
     cancelActiveScroll = () => {
         cancelled = true;
-        finish();
         detachUserIntentListeners(scrollRoot, onUserIntent);
     };
 
@@ -107,7 +94,6 @@ function animateScrollToWithRaf(
         cancelActiveScroll = null;
         detachUserIntentListeners(scrollRoot, onUserIntent);
         scrollRoot.scrollTop = targetTop;
-        finish();
         onComplete();
     };
 
@@ -121,10 +107,6 @@ function animateScrollToWithNative(
 ) {
     let cancelled = false;
 
-    const finish = () => {
-        setSmoothScrolling(scrollRoot, false);
-    };
-
     const complete = () => {
         if (cancelled) {
             return;
@@ -135,7 +117,6 @@ function animateScrollToWithNative(
         scrollRoot.removeEventListener("scrollend", onScrollEnd);
         detachUserIntentListeners(scrollRoot, onUserIntent);
         scrollRoot.scrollTop = targetTop;
-        finish();
         onComplete();
     };
 
@@ -160,7 +141,6 @@ function animateScrollToWithNative(
 
     cancelActiveScroll = () => {
         cancelled = true;
-        finish();
         scrollRoot.removeEventListener("scrollend", onScrollEnd);
         detachUserIntentListeners(scrollRoot, onUserIntent);
     };
@@ -182,8 +162,6 @@ function animateScrollTo(
         onComplete();
         return;
     }
-
-    setSmoothScrolling(scrollRoot, true);
 
     if ("onscrollend" in scrollRoot) {
         animateScrollToWithNative(scrollRoot, targetTop, onComplete);
