@@ -215,8 +215,6 @@ export function scrollToSection(
     const useSmoothScroll =
         behavior === "smooth" && needsScroll && !prefersReducedMotion;
 
-    window.history.replaceState(null, "", `#${sectionId}`);
-
     if (!useSmoothScroll) {
         cancelSmoothScroll(scrollRoot);
         scrollRoot.scrollTop = targetTop;

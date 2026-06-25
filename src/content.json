@@ -10,13 +10,13 @@
         "ariaLabel": "Navigație principală",
         "brandAriaLabel": "Căuzași 2030",
         "items": [
-            { "to": "#cauzasi-2030", "label": "Cauzaşi 2030" },
-            { "to": "#harta", "label": "Hartă" },
-            { "to": "#voluntari", "label": "Voluntari" },
-            { "to": "#petitii", "label": "Petiții" },
-            { "to": "#sponsori", "label": "Sponsori" },
-            { "to": "#echipa", "label": "Echipa" },
-            { "to": "#contact", "label": "Contact" }
+            { "to": "/", "label": "Cauzaşi 2030" },
+            { "to": "/harta", "label": "Hartă" },
+            { "to": "/voluntari", "label": "Voluntari" },
+            { "to": "/petitii", "label": "Petiții" },
+            { "to": "/sponsori", "label": "Sponsori" },
+            { "to": "/echipa", "label": "Echipa" },
+            { "to": "/contact", "label": "Contact" }
         ]
     },
     "home": {
@@ -41,7 +41,7 @@
         "actionsAriaLabel": "Acțiuni principale",
         "primaryAction": {
             "label": "Spune ce trebuie schimbat",
-            "to": "#petitii"
+            "to": "/petitii"
         },
         "secondaryAction": {
             "label": "Susține petiția",
@@ -260,7 +260,7 @@
         "description": "Hartă centrată pe Strada Romulus, în zona istorică a Cartierului Evreiesc, aproape de Matei Basarab, Căuzași și Anton Pann.",
         "iframeTitle": "Hartă Cartierul Evreiesc București",
         "openLabel": "Deschide în Google Maps",
-        "embedUrl": "https://www.google.com/maps/d/embed?mid=1tQ34nnFSC9OZEvVMmEQyjDc4v4UVN7o&ehbc=2E312F",
+        "embedUrl": "https://www.google.com/maps/d/embed?mid=1tQ34nnFSC9OZEvVMmEQyjDc4v4UVN7o",
         "externalUrl": "https://www.google.com/maps/d/viewer?mid=1tQ34nnFSC9OZEvVMmEQyjDc4v4UVN7o"
     },
     "footer": {

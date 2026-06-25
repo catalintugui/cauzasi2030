@@ -1,41 +1,28 @@
 import { useEffect, useState } from "react";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import {
     siteContent,
     type NavigationItem,
 } from "../../content/siteContent";
-import { useActiveSection } from "../../hooks/useActiveSection";
-import { scrollToSection } from "../../scrollToSection";
-
-function getSectionId(href: string) {
-    return href.replace(/^#/, "");
-}
 
 export function Navbar() {
+    const { pathname } = useLocation();
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-    const activeId = useActiveSection();
     const navItems = siteContent.navigation.items.filter(
         (item): item is NavigationItem & { to: string } => Boolean(item.to),
     );
 
     useEffect(() => {
         setIsMenuOpen(false);
-    }, [activeId]);
-
-    const handleNavClick = (href: string) => {
-        scrollToSection(getSectionId(href));
-        setIsMenuOpen(false);
-    };
+    }, [pathname]);
 
     return (
         <nav className="navbar" aria-label={siteContent.navigation.ariaLabel}>
-            <a
+            <Link
                 className="brand"
-                href="#cauzasi-2030"
+                to="/"
                 aria-label={siteContent.navigation.brandAriaLabel}
-                onClick={(event) => {
-                    event.preventDefault();
-                    handleNavClick("#cauzasi-2030");
-                }}
+                onClick={() => setIsMenuOpen(false)}
             >
                 <span className="brand-mark">
                     <img
@@ -49,10 +36,10 @@ export function Navbar() {
                         {siteContent.site.name} {siteContent.site.area}
                     </span>
                     <span className="brand-tagline">
-                            {siteContent.site.tagline}
-                        </span>
+                        {siteContent.site.tagline}
+                    </span>
                 </span>
-            </a>
+            </Link>
             <button
                 className="nav-toggle"
                 type="button"
@@ -76,21 +63,18 @@ export function Navbar() {
                         return null;
                     }
 
-                    const sectionId = getSectionId(item.to);
-                    const isActive = activeId === sectionId;
-
                     return (
-                        <a
-                            className={isActive ? "active" : undefined}
-                            href={item.to}
+                        <NavLink
+                            className={({ isActive }) =>
+                                isActive ? "active" : undefined
+                            }
+                            end={item.to === "/"}
                             key={item.to}
-                            onClick={(event) => {
-                                event.preventDefault();
-                                handleNavClick(item.to);
-                            }}
+                            to={item.to}
+                            onClick={() => setIsMenuOpen(false)}
                         >
                             {item.label}
-                        </a>
+                        </NavLink>
                     );
                 })}
             </div>
