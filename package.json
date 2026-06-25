@@ -1,5 +1,5 @@
 {
-  "name": "initiativa-urbana",
+  "name": "cauzasi2030",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -9,7 +9,7 @@
 	"scripts": {
 		"dev": "vite --open /",
 		"build": "tsc --noEmit && vite build && node scripts/create-404.mjs",
-		"preview": "vite preview --open /initiativa-urbana/ --base /initiativa-urbana/"
+		"preview": "vite preview --open /cauzasi2030/ --base /cauzasi2030/"
 	},
   "dependencies": {
     "react": "latest",
