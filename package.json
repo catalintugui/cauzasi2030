@@ -6,11 +6,11 @@
   "engines": {
     "node": ">=20.19.0"
   },
-  "scripts": {
-    "dev": "vite",
-    "build": "tsc --noEmit && vite build && node scripts/create-404.mjs",
-    "preview": "vite preview"
-  },
+	"scripts": {
+		"dev": "vite --open /",
+		"build": "tsc --noEmit && vite build && node scripts/create-404.mjs",
+		"preview": "vite preview --open /initiativa-urbana/ --base /initiativa-urbana/"
+	},
   "dependencies": {
     "react": "latest",
     "react-dom": "latest",
