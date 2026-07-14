@@ -21,9 +21,10 @@ html {
 
 body {
   min-width: 320px;
-  height: 100dvh;
+  min-height: 100dvh;
   margin: 0;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
   background: var(--bg-base);
 }
 

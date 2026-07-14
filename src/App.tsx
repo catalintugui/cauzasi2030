@@ -26,7 +26,7 @@ function ScrollToTop() {
     const { pathname } = useLocation();
 
     useEffect(() => {
-        document.querySelector<HTMLElement>(".app-content")?.scrollTo(0, 0);
+        window.scrollTo(0, 0);
     }, [pathname]);
 
     return null;

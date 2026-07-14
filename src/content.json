@@ -256,8 +256,8 @@
         ],
         "iframeTitle": "Harta cartierului nostru",
         "openLabel": "Deschide în Google Maps",
-        "embedUrl": "https://www.google.com/maps/d/embed?mid=1tQ34nnFSC9OZEvVMmEQyjDc4v4UVN7o",
-        "externalUrl": "https://www.google.com/maps/d/viewer?mid=1tQ34nnFSC9OZEvVMmEQyjDc4v4UVN7o"
+        "embedUrl": "https://www.google.com/maps/d/embed?mid=1tQ34nnFSC9OZEvVMmEQyjDc4v4UVN7o&ll=44.42968535951401,26.11609965&z=16",
+        "externalUrl": "https://www.google.com/maps/d/viewer?mid=1tQ34nnFSC9OZEvVMmEQyjDc4v4UVN7o&ll=44.42968535951401,26.11609965&z=16"
     },
     "footer": {
         "copyrightHolder": "Asociația Cartier Viu",

@@ -3,10 +3,23 @@ import { visionSlides } from "../../content/visionSlides";
 
 const AUTO_ADVANCE_MS = 2000;
 
-export function VisionSlider() {
+type Slide = {
+    src: string;
+    alt: string;
+};
+
+type VisionSliderProps = {
+    slides?: readonly Slide[];
+    size?: "default" | "large";
+};
+
+export function VisionSlider({
+    slides = visionSlides,
+    size = "default",
+}: VisionSliderProps) {
     const [activeIndex, setActiveIndex] = useState(0);
     const [isPaused, setIsPaused] = useState(false);
-    const slideCount = visionSlides.length;
+    const slideCount = slides.length;
 
     const goTo = useCallback(
         (index: number) => {
@@ -35,9 +48,17 @@ export function VisionSlider() {
         return () => window.clearInterval(timer);
     }, [isPaused, slideCount]);
 
+    const sliderClassName = [
+        "vision-slider",
+        size === "large" && "vision-slider--large",
+        size === "large" && "vision-slider--contain",
+    ]
+        .filter(Boolean)
+        .join(" ");
+
     return (
         <div
-            className="vision-slider"
+            className={sliderClassName}
             onMouseEnter={() => setIsPaused(true)}
             onMouseLeave={() => setIsPaused(false)}
             onFocusCapture={() => setIsPaused(true)}
@@ -48,18 +69,30 @@ export function VisionSlider() {
             }}
         >
             <div className="vision-slider-viewport" aria-live="polite">
-                {visionSlides.map((slide, index) => (
-                    <img
+                {slides.map((slide, index) => (
+                    <div
                         key={slide.src}
-                        alt={slide.alt}
+                        aria-hidden={index !== activeIndex}
                         className={
                             index === activeIndex
-                                ? "vision-slider-slide is-active"
-                                : "vision-slider-slide"
+                                ? "vision-slider-frame is-active"
+                                : "vision-slider-frame"
                         }
-                        draggable={false}
-                        src={slide.src}
-                    />
+                    >
+                        <img
+                            alt=""
+                            aria-hidden="true"
+                            className="vision-slider-slide-bg"
+                            draggable={false}
+                            src={slide.src}
+                        />
+                        <img
+                            alt={slide.alt}
+                            className="vision-slider-slide"
+                            draggable={false}
+                            src={slide.src}
+                        />
+                    </div>
                 ))}
             </div>
 
@@ -85,7 +118,7 @@ export function VisionSlider() {
                 className="vision-slider-dots"
                 role="tablist"
             >
-                {visionSlides.map((slide, index) => (
+                {slides.map((slide, index) => (
                     <button
                         aria-label={`Imaginea ${index + 1}: ${slide.alt}`}
                         aria-selected={index === activeIndex}

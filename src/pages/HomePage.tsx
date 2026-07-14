@@ -1,30 +1,61 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { VisionSlider } from "../components/ui/VisionSlider";
+import { heritageSlides } from "../content/heritageSlides";
+import { streetSlides } from "../content/streetSlides";
+import { visionSlides } from "../content/visionSlides";
 import { siteContent } from "../content/siteContent";
 
 export function HomePage() {
+    const [isExpanded, setIsExpanded] = useState(false);
+    const [firstParagraph, secondParagraph, ...hiddenParagraphs] =
+        siteContent.home.intro;
+
     return (
-        <section
-            className="story-hero"
-            aria-label={siteContent.home.title}
-        >
-            <div className="story-copy story-copy--solo">
-                <p className="section-kicker">{siteContent.home.kicker}</p>
-                <h1>{siteContent.home.title}</h1>
-                <div className="hero-split">
-                    <div className="hero-split-copy">
-                        {siteContent.home.intro.slice(0, 2).map((paragraph, index) => (
-                            <p key={index}>{paragraph}</p>
+        <section className="home-page" aria-label={siteContent.home.title}>
+            <article className="home-card">
+                <header className="home-card__header">
+                    <p className="section-kicker">{siteContent.home.kicker}</p>
+                    <h1>{siteContent.home.title}</h1>
+                </header>
+
+                <div className="home-card__intro">
+                    <p>{firstParagraph}</p>
+                    <p>
+                        {secondParagraph}{" "}
+                        <button
+                            className="read-more-toggle"
+                            type="button"
+                            onClick={() => setIsExpanded((expanded) => !expanded)}
+                        >
+                            {isExpanded
+                                ? "Arată mai puțin"
+                                : "Citește mai mult..."}
+                        </button>
+                    </p>
+                </div>
+
+                {isExpanded ? (
+                    <div className="home-card__body">
+                        {hiddenParagraphs.map((paragraph, index) => (
+                            <p key={index + 2}>{paragraph}</p>
                         ))}
                     </div>
-                    <VisionSlider />
+                ) : null}
+
+                <div className="home-card__slider">
+                    <VisionSlider slides={heritageSlides} size="large" />
                 </div>
-                <div className="hero-intro">
-                    {siteContent.home.intro.slice(2).map((paragraph, index) => (
-                        <p key={index + 2}>{paragraph}</p>
-                    ))}
+
+                <div className="home-card__slider">
+                    <VisionSlider slides={streetSlides} size="large" />
                 </div>
-                <div className="hero-actions">
+
+                <div className="home-card__slider">
+                    <VisionSlider slides={visionSlides} size="large" />
+                </div>
+
+                <div className="home-card__actions">
                     <Link
                         className="button button-primary"
                         to={siteContent.home.primaryAction.to}
@@ -40,7 +71,7 @@ export function HomePage() {
                         {siteContent.home.secondaryAction.label}
                     </a>
                 </div>
-            </div>
+            </article>
         </section>
     );
 }
