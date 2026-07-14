@@ -11,21 +11,36 @@ export function ContactPage({ compact = false }: ContactPageProps) {
         : siteContent.contact.body;
     const PanelTag = compact ? "div" : "section";
 
+    if (compact) {
+        return (
+            <PanelTag className="contact-panel snap-panel">
+                <div>
+                    <p className="section-kicker">{siteContent.contact.kicker}</p>
+                    <h2>{siteContent.contact.title}</h2>
+                    <div className="contact-copy">
+                        {paragraphs.map((paragraph) => (
+                            <p key={paragraph}>{paragraph}</p>
+                        ))}
+                    </div>
+                </div>
+                <SocialLinks variant="cards" />
+            </PanelTag>
+        );
+    }
+
     return (
-        <PanelTag
-            className={
-                compact ? "contact-panel snap-panel" : "contact-panel page-panel"
-            }
-        >
-            <div>
+        <PanelTag className="contact-panel page-panel">
+            <header className="contact-panel__header">
                 <p className="section-kicker">{siteContent.contact.kicker}</p>
                 <h2>{siteContent.contact.title}</h2>
-                <div className="contact-copy">
-                    {paragraphs.map((paragraph) => (
-                        <p key={paragraph}>{paragraph}</p>
-                    ))}
-                </div>
+            </header>
+
+            <div className="contact-copy">
+                {paragraphs.map((paragraph) => (
+                    <p key={paragraph}>{paragraph}</p>
+                ))}
             </div>
+
             <SocialLinks variant="cards" />
         </PanelTag>
     );
