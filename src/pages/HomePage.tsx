@@ -47,8 +47,28 @@ export function HomePage() {
                     <VisionSlider slides={heritageSlides} size="large" />
                 </div>
 
+                <div className="home-card__section">
+                    <h1>{siteContent.home.streetSituation.title}</h1>
+                    <ul className="home-card__issue-list">
+                        {siteContent.home.streetSituation.issues.map((issue) => (
+                            <li key={issue}>{issue}</li>
+                        ))}
+                    </ul>
+                </div>
+
                 <div className="home-card__slider">
                     <VisionSlider slides={streetSlides} size="large" />
+                </div>
+
+                <div className="home-card__section">
+                    <h1>{siteContent.home.visionProposals.title}</h1>
+                    <ul className="home-card__issue-list">
+                        {siteContent.home.visionProposals.proposals.map(
+                            (proposal) => (
+                                <li key={proposal}>{proposal}</li>
+                            ),
+                        )}
+                    </ul>
                 </div>
 
                 <div className="home-card__slider">

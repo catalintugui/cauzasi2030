@@ -50,6 +50,37 @@
         "map": {
             "ariaLabel": "Hartă Strada Romulus",
             "kicker": "Hartă comunitate"
+        },
+        "streetSituation": {
+            "title": "Care e situația acum? Cu ce ne confruntăm zilnic?",
+            "issues": [
+                "Clădiri degradate",
+                "Terenuri virane insalubre",
+                "Gunoi pe străzi",
+                "Trotuare ocupate de mașini",
+                "Lipsă parcări",
+                "Intersecții blocate",
+                "Trafic haotic",
+                "Spațiu verde deficitar",
+                "Lipsa unui parc de proximitate"
+            ]
+        },
+        "visionProposals": {
+            "title": "Ce ne dorim? Propuneri:",
+            "proposals": [
+                "sensuri unice",
+                "trafic calm pentru zonă rezidențială",
+                "trotuare libere pentru pietoni",
+                "siguranță",
+                "parcări publice",
+                "stații încărcare mașini electrice",
+                "piste biciclete",
+                "soluții moderne de mobilitate",
+                "\"shared spaces\"",
+                "mai mult „verde”: arbori, spații verzi, miniparcuri de proximitate, piațete verzi",
+                "clădiri istorice renovate",
+                "respectarea patrimoniului. Realizarea unui „masterplan” și ghid de bune practici, integrate și coerente."
+            ]
         }
     },
     "about": {
@@ -237,6 +268,12 @@
                 "href": "https://www.facebook.com/groups/antonpanncauzasi",
                 "label": "Vezi comunitatea",
                 "icon": "facebook"
+            },
+            {
+                "title": "Instagram",
+                "href": "https://www.instagram.com/cauzasi2030",
+                "label": "Follow us",
+                "icon": "instagram"
             },
             {
                 "title": "Email",

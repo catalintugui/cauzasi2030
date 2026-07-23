@@ -1,6 +1,6 @@
 import content from "../content.json";
 
-export type ChannelIconName = "whatsapp" | "facebook" | "email";
+export type ChannelIconName = "whatsapp" | "facebook" | "instagram" | "email";
 
 export type NavigationItem = {
     label: string;
