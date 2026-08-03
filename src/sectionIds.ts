@@ -3,7 +3,7 @@ export const sectionIds = [
     "harta",
     "voluntari",
     "actiuni",
-    "sponsori",
+    "prieteni",
     "echipa",
     "contact",
 ] as const;

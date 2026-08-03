@@ -1,4 +1,6 @@
+import { Link } from "react-router-dom";
 import { siteContent } from "../../content/siteContent";
+import { withBase } from "../../utils/withBase";
 import { MapEmbed } from "./MapEmbed";
 
 type MapSectionProps = {
@@ -28,6 +30,14 @@ export function MapSection({ compact = false, snap = false }: MapSectionProps) {
                     <p>{siteContent.map.intro}</p>
                 </div>
             )}
+            {!snap && siteContent.map.graphic ? (
+                <figure className="map-panel-graphic">
+                    <img
+                        src={withBase(siteContent.map.graphic.src)}
+                        alt={siteContent.map.graphic.alt}
+                    />
+                </figure>
+            ) : null}
             <MapEmbed interactive={!snap} />
             {!snap && (
                 <div className="map-panel-copy">
@@ -36,6 +46,16 @@ export function MapSection({ compact = false, snap = false }: MapSectionProps) {
                     ))}
                 </div>
             )}
+            {!snap && siteContent.map.cta ? (
+                <div className="map-panel-actions">
+                    <Link
+                        className="button button-primary"
+                        to={siteContent.map.cta.to}
+                    >
+                        {siteContent.map.cta.label}
+                    </Link>
+                </div>
+            ) : null}
         </PanelTag>
     );
 }

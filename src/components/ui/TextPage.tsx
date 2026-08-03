@@ -1,4 +1,5 @@
 import type { TextPageContent } from "../../content/siteContent";
+import { emphasizePerimeter } from "../../utils/emphasizePerimeter";
 
 type TextPageProps = {
     page: TextPageContent;
@@ -21,7 +22,7 @@ export function TextPage({
         >
             <div className="story-panel-heading">
                 <p className="section-kicker">{page.kicker}</p>
-                <h2>{page.title}</h2>
+                <h2>{emphasizePerimeter(page.title)}</h2>
             </div>
             <div className="story-body">
                 {paragraphs.map((paragraph, index) => (
@@ -29,7 +30,7 @@ export function TextPage({
                         className={index === 0 ? "story-intro" : undefined}
                         key={paragraph}
                     >
-                        {paragraph}
+                        {emphasizePerimeter(paragraph)}
                     </p>
                 ))}
                 {page.footnote && (

@@ -1,5 +1,6 @@
 import { TextPage } from "../components/ui/TextPage";
 import { siteContent } from "../content/siteContent";
+import { withBase } from "../utils/withBase";
 
 type TeamPageProps = {
     compact?: boolean;
@@ -44,7 +45,16 @@ export function TeamPage({ compact = false }: TeamPageProps) {
                     <div className="values-grid">
                         {principles.values.map((value) => (
                             <article className="value-card" key={value.title}>
-                                <span aria-hidden="true" />
+                                {"icon" in value && value.icon ? (
+                                    <img
+                                        className="value-card__icon"
+                                        src={withBase(value.icon)}
+                                        alt=""
+                                        aria-hidden="true"
+                                    />
+                                ) : (
+                                    <span aria-hidden="true" />
+                                )}
                                 <h3>{value.title}</h3>
                                 <p>{value.description}</p>
                             </article>

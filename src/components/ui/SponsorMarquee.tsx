@@ -66,7 +66,7 @@ function MarqueeRow({
 }
 
 export function SponsorMarquee({
-    ariaLabel = "Parteneri și sponsori",
+    ariaLabel = "Parteneri și prieteni",
 }: SponsorMarqueeProps) {
     return (
         <section aria-label={ariaLabel} className="sponsor-marquee page-panel">

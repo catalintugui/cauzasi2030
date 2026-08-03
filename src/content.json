@@ -10,46 +10,52 @@
         "ariaLabel": "Navigație principală",
         "brandAriaLabel": "Căuzași 2030",
         "items": [
-            { "to": "/", "label": "Cauzaşi 2030" },
-            { "to": "/harta", "label": "Hartă" },
-            { "to": "/voluntari", "label": "Voluntari" },
-            { "to": "/actiuni", "label": "Acțiuni" },
-            { "to": "/sponsori", "label": "Sponsori" },
-            { "to": "/echipa", "label": "Echipa" },
-            { "to": "/contact", "label": "Contact" }
+            {
+                "to": "/",
+                "label": "Cauzaşi 2030"
+            },
+            {
+                "to": "/harta",
+                "label": "Hartă"
+            },
+            {
+                "to": "/voluntari",
+                "label": "Voluntari"
+            },
+            {
+                "to": "/actiuni",
+                "label": "Acțiuni"
+            },
+            {
+                "to": "/prieteni",
+                "label": "Prieteni"
+            },
+            {
+                "to": "/echipa",
+                "label": "Echipa"
+            },
+            {
+                "to": "/contact",
+                "label": "Contact"
+            }
         ]
     },
     "home": {
-        "kicker": "Povestea inițiativei civice",
-        "title": "Căuzași 2030",
-        "intro": [
-            "Locuim în zona Anton Pann – Lucaci – Căuzași și, ca mulți vecini de aici, am descoperit cât de special este acest cartier: case vechi, detalii arhitecturale rare, curți ascunse și urme ale unui București care încă există, dar care este ignorat complet de autorități și nu este îngrijit așa cum ar merita.",
-            "În același timp, trăim zilnic și partea mai greu de trecut cu vederea: străzi murdare, trotuare ocupate sau greu de folosit, spații neîngrijite, lipsa parcărilor, traficul de tranzit haotic și excesiv, lipsa spațiilor publice, lipsa zonelor verzi. Este un cartier în care simți că potențialul și realitatea nu se întâlnesc.",
-            "Aceste observații personale s-au transformat într-o întrebare: ce am putea face, noi, locuitorii, ca să îmbunătățim cartierul în care trăim?",
-            "Așa a început Căuzași 2030, o inițiativă mică, pornită de pe o singură stradă, care a crescut treptat pe măsură ce au venit alături vecini, prieteni și oameni care simt la fel. Nu suntem o inițiativă politică și nu vrem să transformăm cartierul într-un decor artificial. Vrem un proces lucid, făcut împreună cu vecinii, școlile, instituțiile, business-urile locale, arhitecții, urbaniștii, sociologii și oamenii care cunosc memoria locului.",
-            "Astăzi, Căuzași 2030 înseamnă un efort colectiv de a reda cartierului mai multă grijă, mai multă coerență și mai mult spațiu pentru viața de zi cu zi. Un cartier mai ușor de parcurs, mai verde, mai sigur și mai viu. Căuzași 2030 este o invitație: să ne uităm la ce avem, să spunem ce nu mai funcționează și să desenăm, pas cu pas, o versiune mai bună a cartierului."
-        ],
-        "lead": "Căuzași 2030 pornește de la o idee simplă: cartierul acesta nu trebuie inventat de la zero, ci ascultat, reparat și pus din nou în valoare. Între străzile Matei Basarab, Romulus, Parfumului, Anton Pann, Căuzași, Ion Filibiliu, Zossima Demarat, Vintilă Vodă, Radu Ceauș și Vulturilor există încă un București vechi, fragil și viu.",
-        "story": [
-            "Îl vezi în fațade, în curți, în arborii rămași, în casele care mai păstrează ritmul orașului de dinaintea bulevardelor mari. Îl vezi și în problemele de zi cu zi: trotuare înguste sau ocupate, parcări improvizate, trafic confuz, terenuri virane, prea puțină umbră, prea puține locuri în care să te oprești pur și simplu ca om, nu ca șofer grăbit.",
-            "Suntem locuitori, vecini, prieteni ai zonei și oameni care cred că un cartier central nu trebuie să fie doar un loc de tranzit. Nu suntem o inițiativă politică și nu vrem să transformăm cartierul într-un decor artificial. Vrem un proces lucid, făcut împreună cu vecinii, școlile, instituțiile, business-urile locale, arhitecții, urbaniștii, sociologii și oamenii care cunosc memoria locului. Căuzași 2030 este o invitație: să ne uităm la ce avem, să spunem ce nu mai funcționează și să desenăm, pas cu pas, o versiune mai bună a cartierului.",
-            "Viziunea este pragmatică, nu utopică. Nu vorbim despre străzi complet pietonale, ci despre străzi mai calme, mai clare și mai umane. Traficul poate fi ordonat prin sensuri unice bine gândite, viteze mai mici, intersecții simplificate și treceri mai sigure. Parcările pot exista, dar trasate corect, pe marginea trotuarelor, fără să blocheze mersul pe jos. Trotuarele trebuie să devină continue, accesibile și suficient de late pentru părinți cu copii, vârstnici, persoane cu mobilitate redusă și pentru toți cei care merg zilnic prin cartier.",
-            "Vrem mai mult verde, dar verde real, nu doar jardiniere puse la întâmplare. Arbori acolo unde încap, protejați și irigați. Pocket-parks pe terenuri virane sau spații reziduale. Coridoare de umbră, mici locuri de stat, bănci, lumină bună, coșuri, pavaje decente, colțuri de stradă transformate din resturi de asfalt în spații de proximitate. Vrem ca randările și imaginile propuse pe site să arate exact această posibilitate: un cartier în care patrimoniul nu e muzeificat, ci locuit; în care vechiul cartier evreiesc nu este doar o notă de subsol, ci o memorie urbană respectată; în care clădirile frumoase, poveștile și oamenii devin parte din aceeași hartă.",
-            "Ne interesează un cartier în care copiii pot merge mai sigur spre școală, oamenii în vârstă pot traversa fără teamă, micile afaceri au motiv să rămână, iar vizitatorii descoperă nu doar clădiri, ci o atmosferă. Un cartier în care fotografiile cu ce este frumos și fotografiile cu ce doare stau una lângă alta, ca dovadă că potențialul există, dar trebuie îngrijit.",
-            "Căuzași 2030 înseamnă să trecem de la nemulțumire la proiect. De la poze cu probleme la soluții desenate. De la semnături la dialog. De la străzi neîngrijite la un cartier viu, sigur, verde și demn de istoria lui. Schimbarea nu vine într-o zi, dar poate începe acum."
-        ],
-        "actionsAriaLabel": "Acțiuni principale",
-        "primaryAction": {
-            "label": "Spune ce trebuie schimbat",
-            "to": "/actiuni"
+        "kicker": "PROIECTUL",
+        "title": "Ce este Căuzași 2030?",
+        "project": {
+            "lead": "Cel mai nou proiect comunitar de regenerare urbană și reactivare socio-economică al unui cartier istoric din centru Bucureștiului",
+            "closing": "Primul proiect complex de tip „grass rooting” dintr-o zonă centrală a Sectorului 3 al Capitalei."
         },
-        "secondaryAction": {
-            "label": "Susține petiția",
-            "href": "https://campaniamea.declic.ro/petitions/vrem-un-cartier-civilizat-in-zona-centrala-istorica-matei-basarab-cauzasi-anton-pann"
-        },
-        "map": {
-            "ariaLabel": "Hartă Strada Romulus",
-            "kicker": "Hartă comunitate"
+        "story": {
+            "title": "Povestea inițiativei civice",
+            "intro": [
+                "Locuim în zona Anton Pann – Lucaci – Căuzași și, ca mulți vecini de aici, am descoperit cât de special este acest cartier: case vechi, detalii arhitecturale rare, curți ascunse și urme ale unui București care încă există, dar care este ignorat complet de autorități și nu este îngrijit așa cum ar merita.",
+                "În același timp, trăim zilnic și partea mai greu de trecut cu vederea: străzi murdare, trotuare ocupate sau greu de folosit, spații neîngrijite, lipsa parcărilor, traficul de tranzit haotic și excesiv, lipsa spațiilor publice, lipsa zonelor verzi. Este un cartier în care simți că potențialul și realitatea nu se întâlnesc.",
+                "Aceste observații personale s-au transformat într-o întrebare: ce am putea face, noi, locuitorii, ca să îmbunătățim cartierul în care trăim?",
+                "Așa a început Căuzași 2030, o inițiativă mică, pornită de pe o singură stradă, care a crescut treptat pe măsură ce au venit alături vecini, prieteni și oameni care simt la fel. Nu suntem o inițiativă politică și nu vrem să transformăm cartierul într-un decor artificial. Vrem un proces lucid, făcut împreună cu vecinii, școlile, instituțiile, business-urile locale, arhitecții, urbaniștii, sociologii și oamenii care cunosc memoria locului.",
+                "Astăzi, Căuzași 2030 înseamnă un efort colectiv de a reda cartierului mai multă grijă, mai multă coerență și mai mult spațiu pentru viața de zi cu zi. Un cartier mai ușor de parcurs, mai verde, mai sigur și mai viu. Căuzași 2030 este o invitație: să ne uităm la ce avem, să spunem ce nu mai funcționează și să desenăm, pas cu pas, o versiune mai bună a cartierului."
+            ]
         },
         "streetSituation": {
             "title": "Care e situația acum? Cu ce ne confruntăm zilnic?",
@@ -81,6 +87,36 @@
                 "clădiri istorice renovate",
                 "respectarea patrimoniului. Realizarea unui „masterplan” și ghid de bune practici, integrate și coerente."
             ]
+        },
+        "progress": {
+            "achievements": {
+                "title": "Ce am făcut până acum? Realizări:",
+                "icon": "/icons/progress/realizari.png",
+                "items": [
+                    "Am început construirea comunității locale (primele întâlniri cu vecinii și beneficiarii zonei)",
+                    "Am înființat Asociația Cartier Viu, ca structură formală pentru proiectul „Căuzași 2030”",
+                    "Am definit perimetrul de lucru și am documentat fotografic atât valorile zonei, cât și problemele vizibile",
+                    "Am transmis primele adrese către autorități cu privire la neregulile identificate în cartier",
+                    "Am inițiat dialoguri cu vecini, afaceri locale, școli, ONG-uri, specialiști și instituții relevante",
+                    "Colaborăm cu specialiști din domenii diverse: urbanism, arhitectură, peisagistică, sociologie, sondaje de opinie, topografie, juridic, branding, social media etc."
+                ]
+            },
+            "plans": {
+                "title": "Ce planuri avem? Proiecte:",
+                "icon": "/icons/progress/proiecte.png",
+                "items": [
+                    "Pregătim un chestionar de teren pentru nevoile și opiniile locuitorilor și recrutăm voluntari pentru aplicarea lui în cartier",
+                    "Am început demersuri pentru un ghid / masterplan de regenerare urbană, împreună cu universități, experți și ONG-uri specializate",
+                    "Organizarea unui eveniment tip „străzi pietonale”, cu cină și socializare între vecini + activități și ateliere cu copiii",
+                    "Realizarea de artă murală pe zidurile clădirilor dezafectate sau neîntreținute",
+                    "Activări social-culturale de cartier (târguri, expoziții, evenimente artistice, concerte, tururi pietonale, evenimente comunitare, clubul seniorilor)",
+                    "Crearea unei hărți interactive pentru promovarea istorică, turistică și comercială a cartierului"
+                ]
+            }
+        },
+        "cta": {
+            "label": "Implică-te",
+            "to": "/actiuni"
         }
     },
     "about": {
@@ -115,7 +151,7 @@
         ]
     },
     "sponsors": {
-        "kicker": "Sponsori",
+        "kicker": "Prieteni",
         "title": "Susține Căuzași 2030 ca partener al cartierului.",
         "body": [
             "Căuzași 2030 este o inițiativă civică locală care își propune să transforme o zonă valoroasă, dar prea puțin pusă în valoare, într-un cartier mai coerent, mai verde, mai sigur și mai viu. Vorbim despre străzi* istorice din centrul Bucureștiului, o zonă cu memorie urbană puternică, cu clădiri frumoase, business-uri locale și un potențial uriaș de regenerare.",
@@ -174,31 +210,38 @@
             "values": [
                 {
                     "title": "Comunitate",
-                    "description": "Credem că locuitorii, vecinii, proprietarii, școlile, business-urile și instituțiile locale sunt actorii principali ai transformării urbane."
+                    "description": "Credem că locuitorii, vecinii, proprietarii, școlile, business-urile și instituțiile locale sunt actorii principali ai transformării urbane.",
+                    "icon": "/icons/values/comunitate.png"
                 },
                 {
                     "title": "Calitatea vieții urbane",
-                    "description": "Punem în centru experiența de zi cu zi a oamenilor: mersul pe jos, siguranța copiilor, accesibilitatea trotuarelor, umbra, liniștea și sentimentul de apartenență."
+                    "description": "Punem în centru experiența de zi cu zi a oamenilor: mersul pe jos, siguranța copiilor, accesibilitatea trotuarelor, umbra, liniștea și sentimentul de apartenență.",
+                    "icon": "/icons/values/calitatea-vietii-urbane.png"
                 },
                 {
                     "title": "Respect pentru patrimoniu",
-                    "description": "Trecutul unui cartier nu trebuie tratat ca decor, ci ca fundament al identității sale viitoare."
+                    "description": "Trecutul unui cartier nu trebuie tratat ca decor, ci ca fundament al identității sale viitoare.",
+                    "icon": "/icons/values/respect-pentru-patrimoniu.png"
                 },
                 {
                     "title": "Participare și transparență",
-                    "description": "Susținem consultarea reală a comunității, comunicarea deschisă și deciziile explicate."
+                    "description": "Susținem consultarea reală a comunității, comunicarea deschisă și deciziile explicate.",
+                    "icon": "/icons/values/participare-si-transparenta.png"
                 },
                 {
                     "title": "Profesionalism",
-                    "description": "Acțiunile organizației trebuie susținute prin date, observații de teren, cercetare și dialog cu specialiști."
+                    "description": "Acțiunile organizației trebuie susținute prin date, observații de teren, cercetare și dialog cu specialiști.",
+                    "icon": "/icons/values/profesionalism.png"
                 },
                 {
                     "title": "Sustenabilitate",
-                    "description": "Promovăm mai mult verde urban, mobilitate calmă, spații publice mai bune și adaptarea cartierelor la provocările climatice."
+                    "description": "Promovăm mai mult verde urban, mobilitate calmă, spații publice mai bune și adaptarea cartierelor la provocările climatice.",
+                    "icon": "/icons/values/sustenabilitate.png"
                 },
                 {
                     "title": "Colaborare",
-                    "description": "Vrem să aducem la aceeași masă comunitatea, universitățile, administrația publică, ONG-urile, companiile, creativii și experții."
+                    "description": "Vrem să aducem la aceeași masă comunitatea, universitățile, administrația publică, ONG-urile, companiile, creativii și experții.",
+                    "icon": "/icons/values/colaborare.png"
                 }
             ]
         }
@@ -225,13 +268,13 @@
         ]
     },
     "involvement": {
-        "kicker": "Petiții",
+        "kicker": "Implică-te",
         "title": "Alege cel mai simplu mod de a ajuta chiar acum.",
         "actions": [
             {
                 "title": "Trimite o sugestie",
                 "description": "Completează chestionarul comunității ca să prioritizăm ideile care contează pentru vecini.",
-                "href": "https://forms.gle/8UxvXdwvnsQsXcMG6",
+                "href": "https://docs.google.com/forms/d/e/1FAIpQLSeawcv5wqFEkp3lY3TEZvm_U4MeMZI8HpSGjwJ3hmsHdDqYGw/viewform",
                 "label": "Completează chestionarul"
             },
             {
@@ -239,21 +282,56 @@
                 "description": "Susține demersul pentru un cartier civilizat în zona Matei Basarab, Căuzași, Anton Pann.",
                 "href": "https://campaniamea.declic.ro/petitions/vrem-un-cartier-civilizat-in-zona-centrala-istorica-matei-basarab-cauzasi-anton-pann",
                 "label": "Vezi petiția"
-            },
-            {
-                "title": "Urmărește problemele",
-                "description": "Consultă tabelul cu probleme și sugestii strânse din conversațiile comunității.",
-                "href": "https://docs.google.com/spreadsheets/d/152dNblz9J_r01m5dogjYnd3pDsGuk6nu5Kb7h3CTcL4/",
-                "label": "Deschide tabelul"
             }
-        ]
+        ],
+        "donate": {
+            "id": "doneaza",
+            "kicker": "Implică-te",
+            "title": "Susține Asociația Cartier Viu",
+            "intro": "Căuzași 2030 este proiectul-pilot al Asociației Cartier Viu. Donațiile ne ajută să finanțăm documentare, consultări comunitare, evenimente de cartier și pașii concreți de regenerare urbană.",
+            "methods": [
+                {
+                    "title": "Virament bancar",
+                    "body": [
+                        "Donează prin transfer bancar către Asociația Cartier Viu.",
+                        "Scrie-ne la salut@cauzasi.ro pentru detaliile de cont (IBAN) și mențiunea pe care o poți folosi la plată."
+                    ],
+                    "action": {
+                        "label": "Solicită detaliile de donație",
+                        "href": "mailto:salut@cauzasi.ro?subject=Dona%C8%9Bie%20Asocia%C8%9Bia%20Cartier%20Viu"
+                    }
+                },
+                {
+                    "title": "Redirecționează 3,5% din impozit",
+                    "body": [
+                        "Persoanele fizice pot redirecționa până la 3,5% din impozitul pe venit către un ONG, fără cost suplimentar.",
+                        "Contactează-ne pentru datele Asociației Cartier Viu și pentru formularul pregătit."
+                    ],
+                    "action": {
+                        "label": "Scrie-ne pentru Formularul 230",
+                        "href": "mailto:salut@cauzasi.ro?subject=Formular%20230%20%E2%80%93%20Asocia%C8%9Bia%20Cartier%20Viu"
+                    }
+                },
+                {
+                    "title": "Sponsorizare pentru firme",
+                    "body": [
+                        "Companiile pot susține proiectul prin contract de sponsorizare sau prin redirecționarea a până la 20% din impozitul pe profit/venit.",
+                        "Hai să vorbim despre cea mai potrivită formă de parteneriat."
+                    ],
+                    "action": {
+                        "label": "Propune o sponsorizare",
+                        "href": "mailto:salut@cauzasi.ro?subject=Sponsorizare%20Asocia%C8%9Bia%20Cartier%20Viu"
+                    }
+                }
+            ]
+        }
     },
     "contact": {
         "kicker": "Contact",
         "title": "Trăiești sau lucrezi în arealul Bd. Mircea Vodă x Cal. Călărași x Str. Traian x Bd. Unirii? Implică-te!",
         "body": [
             "Căuzași 2030 este o inițiativă deschisă oamenilor care vor să contribuie la îmbunătățirea cartierului în care trăiesc: locuitori, vecini, business-uri locale, creativi, specialiști și voluntari. Dacă ai o idee, o observație din cartier, o fotografie, o propunere sau pur și simplu vrei să te implici, ne poți scrie.",
-            "Ne poți urmări pe Instagram, Facebook, TikTok și LinkedIn, unde publicăm actualizări despre proiect, oameni implicați, evenimente și pașii următori. Pentru mesaje directe sau propuneri de colaborare, ne poți scrie la salut@cauzasi.ro sau prin formularul de contact de mai jos.",
+            "Ne poți urmări pe social media, unde publicăm actualizări despre proiect, oameni implicați, evenimente și pașii următori. Pentru mesaje directe sau propuneri de colaborare, ne poți scrie la salut@cauzasi.ro sau prin formularul de contact de mai jos.",
             "Schimbarea cartierului începe cu oameni care aleg să se implice, în felul lor, cu timpul pe care îl au la dispoziție. Noi suntem aici ca să îl transformăm într-un proces comun."
         ],
         "channels": [
@@ -265,8 +343,8 @@
             },
             {
                 "title": "Facebook",
-                "href": "https://www.facebook.com/groups/antonpanncauzasi",
-                "label": "Vezi comunitatea",
+                "href": "https://www.facebook.com/PaginaCauzasiAntonPann",
+                "label": "Urmărește pagina",
                 "icon": "facebook"
             },
             {
@@ -294,7 +372,15 @@
         "iframeTitle": "Harta cartierului nostru",
         "openLabel": "Deschide în Google Maps",
         "embedUrl": "https://www.google.com/maps/d/embed?mid=1tQ34nnFSC9OZEvVMmEQyjDc4v4UVN7o&ll=44.42968535951401,26.11609965&z=16",
-        "externalUrl": "https://www.google.com/maps/d/viewer?mid=1tQ34nnFSC9OZEvVMmEQyjDc4v4UVN7o&ll=44.42968535951401,26.11609965&z=16"
+        "externalUrl": "https://www.google.com/maps/d/viewer?mid=1tQ34nnFSC9OZEvVMmEQyjDc4v4UVN7o&ll=44.42968535951401,26.11609965&z=16",
+        "graphic": {
+            "src": "/map/zona-extinsa.jpg",
+            "alt": "Hartă grafică a zonei Căuzași – Matei Basarab – Anton Pann"
+        },
+        "cta": {
+            "label": "Implică-te",
+            "to": "/actiuni"
+        }
     },
     "footer": {
         "copyrightHolder": "Asociația Cartier Viu",

@@ -23,11 +23,19 @@ function useSiteMetadata() {
 }
 
 function ScrollToTop() {
-    const { pathname } = useLocation();
+    const { pathname, hash } = useLocation();
 
     useEffect(() => {
+        if (hash) {
+            const target = document.querySelector(hash);
+            if (target) {
+                target.scrollIntoView({ behavior: "smooth", block: "start" });
+                return;
+            }
+        }
+
         window.scrollTo(0, 0);
-    }, [pathname]);
+    }, [pathname, hash]);
 
     return null;
 }
@@ -55,7 +63,7 @@ function App() {
                 <Route path="harta" element={<MapPage />} />
                 <Route path="voluntari" element={<VolunteersPage />} />
                 <Route path="actiuni" element={<GetInvolvedPage />} />
-                <Route path="sponsori" element={<SponsorsPage />} />
+                <Route path="prieteni" element={<SponsorsPage />} />
                 <Route path="echipa" element={<TeamPage />} />
                 <Route path="contact" element={<ContactPage />} />
                 <Route path="*" element={<NotFoundPage />} />
