@@ -9,8 +9,11 @@
 	"scripts": {
 		"dev": "vite --open /",
 		"build": "tsc --noEmit && vite build && node scripts/create-404.mjs",
-		"preview": "vite preview --open /cauzasi2030/ --base /cauzasi2030/"
+		"build:prd": "tsc --noEmit && vite build --base / && node scripts/create-404.mjs --root",
+		"preview": "vite preview --open /cauzasi2030/ --base /cauzasi2030/",
+		"preview:prd": "vite preview --open / --base /"
 	},
+
   "dependencies": {
     "react": "latest",
     "react-dom": "latest",

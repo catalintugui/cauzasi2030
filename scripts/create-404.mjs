@@ -1,7 +1,7 @@
 import { readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 
-const segmentCount = 1;
+const segmentCount = process.argv.includes("--root") ? 0 : 1;
 
 const redirect404 = `<!DOCTYPE html>
 <html lang="ro">
