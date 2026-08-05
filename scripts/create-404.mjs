@@ -1,7 +1,10 @@
 import { readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 
-const segmentCount = process.argv.includes("--root") ? 0 : 1;
+const isRoot = process.argv.includes("--root");
+const segmentCount = isRoot ? 0 : 1;
+const rewriteBase = isRoot ? "/" : "/cauzasi2030/";
+const indexPath = isRoot ? "/index.html" : "/cauzasi2030/index.html";
 
 const redirect404 = `<!DOCTYPE html>
 <html lang="ro">
@@ -69,3 +72,20 @@ if (!indexHtml.includes("locationRef.search[1]")) {
 
 writeFileSync(join("dist", "404.html"), redirect404);
 writeFileSync(join("dist", ".nojekyll"), "");
+
+// Apache/cPanel (Hostico): send unknown URLs to the SPA so React Router
+// can render NotFoundPage instead of the host's default 404 page.
+const htaccess = `<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase ${rewriteBase}
+  RewriteRule ^index\\.html$ - [L]
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME} !-l
+  RewriteRule . ${indexPath} [L]
+</IfModule>
+
+ErrorDocument 404 ${indexPath}
+`;
+
+writeFileSync(join("dist", ".htaccess"), htaccess);

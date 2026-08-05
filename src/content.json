@@ -371,7 +371,7 @@
         ],
         "iframeTitle": "Harta cartierului nostru",
         "openLabel": "Deschide în Google Maps",
-        "embedUrl": "https://www.google.com/maps/d/embed?mid=1tQ34nnFSC9OZEvVMmEQyjDc4v4UVN7o&ll=44.42968535951401,26.11609965&z=16",
+        "embedUrl": "https://www.google.com/maps/d/embed?mid=1tQ34nnFSC9OZEvVMmEQyjDc4v4UVN7o&ll=44.42968535951401,26.11609965&z=15",
         "externalUrl": "https://www.google.com/maps/d/viewer?mid=1tQ34nnFSC9OZEvVMmEQyjDc4v4UVN7o&ll=44.42968535951401,26.11609965&z=16",
         "graphic": {
             "src": "/map/zona-extinsa.jpg",
@@ -389,6 +389,10 @@
     "notFound": {
         "kicker": "404",
         "title": "Pagina nu a fost găsită.",
-        "body": "Adresa nu există încă. Întoarce-te la pagina principală sau folosește navigația pentru a ajunge la secțiunea dorită."
+        "body": "Adresa nu există încă. Întoarce-te la pagina principală sau folosește navigația pentru a ajunge la secțiunea dorită.",
+        "cta": {
+            "label": "Înapoi la pagina principală",
+            "to": "/"
+        }
     }
 }

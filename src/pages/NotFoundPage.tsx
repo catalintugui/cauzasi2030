@@ -1,13 +1,24 @@
+import { Link } from "react-router-dom";
 import { siteContent } from "../content/siteContent";
 
 export function NotFoundPage() {
     return (
-        <section className="intro-panel page-panel">
+        <section className="intro-panel page-panel" aria-label={siteContent.notFound.kicker}>
             <div>
                 <p className="section-kicker">{siteContent.notFound.kicker}</p>
                 <h2>{siteContent.notFound.title}</h2>
             </div>
-            <p>{siteContent.notFound.body}</p>
+            <div className="intro-copy">
+                <p>{siteContent.notFound.body}</p>
+                <div className="hero-actions">
+                    <Link
+                        className="button button-primary"
+                        to={siteContent.notFound.cta.to}
+                    >
+                        {siteContent.notFound.cta.label}
+                    </Link>
+                </div>
+            </div>
         </section>
     );
 }
