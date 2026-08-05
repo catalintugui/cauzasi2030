@@ -73,18 +73,22 @@ if (!indexHtml.includes("locationRef.search[1]")) {
 writeFileSync(join("dist", "404.html"), redirect404);
 writeFileSync(join("dist", ".nojekyll"), "");
 
-// Apache/cPanel (Hostico): send unknown URLs to the SPA so React Router
-// can render NotFoundPage instead of the host's default 404 page.
-const htaccess = `<IfModule mod_rewrite.c>
+// Apache/cPanel (Hostico): rewrite unknown URLs to index.html so React Router
+// can render NotFoundPage. Avoid relying on a custom ErrorDocument file —
+// a missing one produces Apache's "Additionally, a 404... ErrorDocument" page.
+const htaccess = `Options -MultiViews
+
+<IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase ${rewriteBase}
   RewriteRule ^index\\.html$ - [L]
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteCond %{REQUEST_FILENAME} !-l
-  RewriteRule . ${indexPath} [L]
+  RewriteRule . index.html [L]
 </IfModule>
 
+# Override any broken cPanel ErrorDocument and fall back to the SPA.
 ErrorDocument 404 ${indexPath}
 `;
 
