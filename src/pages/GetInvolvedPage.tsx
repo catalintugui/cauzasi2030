@@ -14,6 +14,7 @@ type InvolvementCard = {
 
 export function GetInvolvedPage({ compact = false }: GetInvolvedPageProps) {
     const PanelTag = compact ? "div" : "section";
+    const HeadingTag = compact ? "h2" : "h1";
     const { donate, actions } = siteContent.involvement;
 
     const cards: InvolvementCard[] = [
@@ -49,7 +50,9 @@ export function GetInvolvedPage({ compact = false }: GetInvolvedPageProps) {
                 <p className="section-kicker">
                     {donate?.kicker ?? siteContent.involvement.kicker}
                 </p>
-                <h2>{donate?.title ?? siteContent.involvement.title}</h2>
+                <HeadingTag>
+                    {donate?.title ?? siteContent.involvement.title}
+                </HeadingTag>
                 {!compact && donate?.intro ? (
                     <p className="donate-intro">{donate.intro}</p>
                 ) : null}

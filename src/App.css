@@ -508,6 +508,7 @@
   max-width: 760px;
 }
 
+.snap-section--map .map-panel-heading h1,
 .snap-section--map .map-panel-heading h2 {
   margin-bottom: 0;
   font-size: clamp(1.6rem, 3vw, 2.4rem);
@@ -1014,8 +1015,11 @@
   grid-template-columns: 0.45fr 1fr;
 }
 
+.story-panel-heading h1,
 .story-panel-heading h2 {
   margin-bottom: 0;
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  letter-spacing: -0.055em;
 }
 
 .story-body {
@@ -1449,8 +1453,11 @@ h3 {
   background: var(--glass-surface);
 }
 
+.intro-panel h1,
 .intro-panel h2 {
   margin-bottom: 0;
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  letter-spacing: -0.055em;
 }
 
 .intro-copy {
@@ -1570,10 +1577,18 @@ h3 {
   width: 100%;
 }
 
+.section-heading h1 {
+  margin-bottom: 0;
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  letter-spacing: -0.055em;
+}
+
+.contact-panel h1,
 .contact-panel h2 {
   margin: 0;
   font-size: clamp(1.75rem, 4vw, 2.75rem);
   line-height: 1.08;
+  letter-spacing: -0.055em;
 }
 
 .contact-panel .channel-list {
@@ -1649,8 +1664,11 @@ h3 {
   background: var(--glass-surface);
 }
 
+.map-panel-heading h1,
 .map-panel-heading h2 {
   margin-bottom: 0;
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  letter-spacing: -0.055em;
 }
 
 .map-panel-heading > p:not(.section-kicker) {

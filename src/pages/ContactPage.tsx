@@ -11,6 +11,7 @@ export function ContactPage({ compact = false }: ContactPageProps) {
         ? siteContent.contact.body.slice(0, 2)
         : siteContent.contact.body;
     const PanelTag = compact ? "div" : "section";
+    const HeadingTag = compact ? "h2" : "h1";
 
     if (compact) {
         return (
@@ -33,7 +34,9 @@ export function ContactPage({ compact = false }: ContactPageProps) {
         <PanelTag className="contact-panel page-panel">
             <header className="contact-panel__header">
                 <p className="section-kicker">{siteContent.contact.kicker}</p>
-                <h2>{emphasizePerimeter(siteContent.contact.title)}</h2>
+                <HeadingTag>
+                    {emphasizePerimeter(siteContent.contact.title)}
+                </HeadingTag>
             </header>
 
             <div className="contact-copy">

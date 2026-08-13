@@ -6,7 +6,7 @@ export function NotFoundPage() {
         <section className="intro-panel page-panel" aria-label={siteContent.notFound.kicker}>
             <div>
                 <p className="section-kicker">{siteContent.notFound.kicker}</p>
-                <h2>{siteContent.notFound.title}</h2>
+                <h1>{siteContent.notFound.title}</h1>
             </div>
             <div className="intro-copy">
                 <p>{siteContent.notFound.body}</p>

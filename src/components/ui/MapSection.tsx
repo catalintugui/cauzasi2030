@@ -10,6 +10,7 @@ type MapSectionProps = {
 
 export function MapSection({ compact = false, snap = false }: MapSectionProps) {
     const PanelTag = snap ? "div" : "section";
+    const HeadingTag = compact || snap ? "h2" : "h1";
 
     return (
         <PanelTag
@@ -23,7 +24,7 @@ export function MapSection({ compact = false, snap = false }: MapSectionProps) {
         >
             <div className="map-panel-heading">
                 <p className="section-kicker">{siteContent.map.kicker}</p>
-                <h2>{siteContent.map.title}</h2>
+                <HeadingTag>{siteContent.map.title}</HeadingTag>
             </div>
             {!snap && (
                 <div className="map-panel-copy">

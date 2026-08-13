@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import { Outlet, Route, Routes, useLocation } from "react-router-dom";
 import { Footer } from "./components/layout/Footer";
 import { Navbar } from "./components/layout/Navbar";
-import { siteContent } from "./content/siteContent";
 import { ContactPage } from "./pages/ContactPage";
 import { GetInvolvedPage } from "./pages/GetInvolvedPage";
 import { HomePage } from "./pages/HomePage";
@@ -11,15 +10,15 @@ import { NotFoundPage } from "./pages/NotFoundPage";
 import { SponsorsPage } from "./pages/SponsorsPage";
 import { TeamPage } from "./pages/TeamPage";
 import { VolunteersPage } from "./pages/VolunteersPage";
+import { applyPageSeo } from "./seo";
 import "./App.css";
 
 function useSiteMetadata() {
+    const { pathname } = useLocation();
+
     useEffect(() => {
-        document.title = siteContent.site.fullName;
-        document
-            .querySelector('meta[name="description"]')
-            ?.setAttribute("content", siteContent.site.description);
-    }, []);
+        applyPageSeo(pathname);
+    }, [pathname]);
 }
 
 function ScrollToTop() {

@@ -14,6 +14,7 @@ export function TextPage({
 }: TextPageProps) {
     const paragraphs = compact ? page.body.slice(0, 2) : page.body;
     const PanelTag = compact ? "div" : "section";
+    const HeadingTag = compact ? "h2" : "h1";
 
     return (
         <PanelTag
@@ -22,7 +23,7 @@ export function TextPage({
         >
             <div className="story-panel-heading">
                 <p className="section-kicker">{page.kicker}</p>
-                <h2>{emphasizePerimeter(page.title)}</h2>
+                <HeadingTag>{emphasizePerimeter(page.title)}</HeadingTag>
             </div>
             <div className="story-body">
                 {paragraphs.map((paragraph, index) => (
