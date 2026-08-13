@@ -10,6 +10,7 @@ import { NotFoundPage } from "./pages/NotFoundPage";
 import { SponsorsPage } from "./pages/SponsorsPage";
 import { TeamPage } from "./pages/TeamPage";
 import { VolunteersPage } from "./pages/VolunteersPage";
+import { useScrollPerformance } from "./hooks/useScrollPerformance";
 import { applyPageSeo } from "./seo";
 import "./App.css";
 
@@ -41,6 +42,7 @@ function ScrollToTop() {
 
 function MainLayout() {
     useSiteMetadata();
+    useScrollPerformance();
 
     return (
         <main className="page-shell">

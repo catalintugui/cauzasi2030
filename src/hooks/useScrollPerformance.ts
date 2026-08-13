@@ -1,35 +1,37 @@
 import { useEffect } from "react";
 
-const SCROLL_IDLE_MS = 180;
+const SCROLL_IDLE_MS = 140;
 
-export function useScrollPerformance(
-    scrollRootSelector = ".snap-scroll-container",
-    pageShellSelector = ".page-shell",
-) {
+export function useScrollPerformance(pageShellSelector = ".page-shell") {
     useEffect(() => {
-        const scrollRoot = document.querySelector<HTMLElement>(scrollRootSelector);
         const pageShell = document.querySelector<HTMLElement>(pageShellSelector);
 
-        if (!scrollRoot || !pageShell) {
+        if (!pageShell) {
             return;
         }
 
         let idleTimer: ReturnType<typeof setTimeout> | undefined;
+        let scrolling = false;
 
         const markScrolling = () => {
-            pageShell.classList.add("is-scrolling");
+            if (!scrolling) {
+                scrolling = true;
+                pageShell.classList.add("is-scrolling");
+            }
+
             clearTimeout(idleTimer);
             idleTimer = setTimeout(() => {
+                scrolling = false;
                 pageShell.classList.remove("is-scrolling");
             }, SCROLL_IDLE_MS);
         };
 
-        scrollRoot.addEventListener("scroll", markScrolling, { passive: true });
+        window.addEventListener("scroll", markScrolling, { passive: true });
 
         return () => {
             clearTimeout(idleTimer);
-            scrollRoot.removeEventListener("scroll", markScrolling);
+            window.removeEventListener("scroll", markScrolling);
             pageShell.classList.remove("is-scrolling");
         };
-    }, [scrollRootSelector, pageShellSelector]);
+    }, [pageShellSelector]);
 }
