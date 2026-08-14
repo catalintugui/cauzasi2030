@@ -1,11 +1,18 @@
-import { copyFileSync, readFileSync, writeFileSync } from "node:fs";
+import { copyFileSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 
 const isRoot = process.argv.includes("--root");
 const segmentCount = isRoot ? 0 : 1;
 const rewriteBase = isRoot ? "/" : "/cauzasi2030/";
 const indexPath = isRoot ? "/index.html" : "/cauzasi2030/index.html";
-const errorDocument = isRoot ? "/404.html" : "/cauzasi2030/404.html";
+const spaRoutes = [
+  "harta",
+  "voluntari",
+  "actiuni",
+  "prieteni",
+  "echipa",
+  "contact",
+];
 
 const distIndexPath = join("dist", "index.html");
 const indexHtml = readFileSync(distIndexPath, "utf8");
@@ -80,7 +87,22 @@ if (!isRoot) {
 
 writeFileSync(join("dist", ".nojekyll"), "");
 
-const htaccess = `Options -MultiViews
+const distIndex = join("dist", "index.html");
+for (const route of spaRoutes) {
+  const routeDir = join("dist", route);
+  mkdirSync(routeDir, { recursive: true });
+  copyFileSync(distIndex, join(routeDir, "index.html"));
+}
+
+const htaccess = `DirectoryIndex index.html
+
+<IfModule mod_negotiation.c>
+  Options -MultiViews
+</IfModule>
+
+<IfModule mod_dir.c>
+  FallbackResource ${indexPath}
+</IfModule>
 
 <IfModule mod_rewrite.c>
   RewriteEngine On
@@ -89,10 +111,10 @@ const htaccess = `Options -MultiViews
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteCond %{REQUEST_FILENAME} !-l
-  RewriteRule . ${indexPath} [L]
+  RewriteRule ^ ${indexPath} [L]
 </IfModule>
 
-ErrorDocument 404 ${errorDocument}
+ErrorDocument 404 ${indexPath}
 `;
 
 writeFileSync(join("dist", ".htaccess"), htaccess);

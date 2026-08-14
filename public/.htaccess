@@ -1,4 +1,12 @@
-Options -MultiViews
+DirectoryIndex index.html
+
+<IfModule mod_negotiation.c>
+  Options -MultiViews
+</IfModule>
+
+<IfModule mod_dir.c>
+  FallbackResource /index.html
+</IfModule>
 
 <IfModule mod_rewrite.c>
   RewriteEngine On
@@ -7,7 +15,7 @@ Options -MultiViews
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteCond %{REQUEST_FILENAME} !-l
-  RewriteRule . /index.html [L]
+  RewriteRule ^ /index.html [L]
 </IfModule>
 
-ErrorDocument 404 /404.html
+ErrorDocument 404 /index.html
