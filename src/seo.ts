@@ -1,3 +1,4 @@
+import { getEventBySlug } from "./content/events";
 import { siteContent } from "./content/siteContent";
 
 export const SITE_ORIGIN = "https://cauzasi.ro";
@@ -8,6 +9,7 @@ export type PageSeo = {
     description: string;
     path: string;
     noindex?: boolean;
+    image?: string;
 };
 
 const brand = siteContent.site.fullName;
@@ -35,6 +37,11 @@ const pages: Record<string, PageSeo> = {
         title: `Implică-te și donează — ${brand}`,
         description:
             "Susține Asociația Cartier Viu și proiectul Căuzași 2030: chestionar, petiție, donații, Formular 230 și sponsorizări.",
+    },
+    "/evenimente": {
+        path: "/evenimente",
+        title: `Evenimente — ${brand}`,
+        description: siteContent.events.intro,
     },
     "/prieteni": {
         path: "/prieteni",
@@ -69,7 +76,24 @@ export function getPageSeo(pathname: string): PageSeo {
             ? pathname.slice(0, -1)
             : pathname;
 
-    return pages[normalized] ?? notFoundSeo;
+    if (pages[normalized]) {
+        return pages[normalized];
+    }
+
+    const eventMatch = normalized.match(/^\/evenimente\/([^/]+)$/);
+    if (eventMatch) {
+        const event = getEventBySlug(eventMatch[1]);
+        if (event) {
+            return {
+                path: normalized,
+                title: `${event.title} — ${brand}`,
+                description: event.summary,
+                image: `${SITE_ORIGIN}${event.image}`,
+            };
+        }
+    }
+
+    return notFoundSeo;
 }
 
 export function absoluteUrl(path: string): string {
@@ -121,6 +145,7 @@ export function applyPageSeo(pathname: string) {
     const seo = getPageSeo(pathname);
     const url = absoluteUrl(seo.path);
     const robots = seo.noindex ? "noindex, follow" : "index, follow";
+    const ogImage = seo.image ?? DEFAULT_OG_IMAGE;
 
     document.title = seo.title;
     upsertMeta("name", "description", seo.description);
@@ -133,12 +158,12 @@ export function applyPageSeo(pathname: string) {
     upsertMeta("property", "og:title", seo.title);
     upsertMeta("property", "og:description", seo.description);
     upsertMeta("property", "og:url", url);
-    upsertMeta("property", "og:image", DEFAULT_OG_IMAGE);
+    upsertMeta("property", "og:image", ogImage);
 
     upsertMeta("name", "twitter:card", "summary_large_image");
     upsertMeta("name", "twitter:title", seo.title);
     upsertMeta("name", "twitter:description", seo.description);
-    upsertMeta("name", "twitter:image", DEFAULT_OG_IMAGE);
+    upsertMeta("name", "twitter:image", ogImage);
 
     upsertJsonLd("seo-website-jsonld", {
         "@context": "https://schema.org",

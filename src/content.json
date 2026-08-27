@@ -27,6 +27,10 @@
                 "label": "Acțiuni"
             },
             {
+                "to": "/evenimente",
+                "label": "Evenimente"
+            },
+            {
                 "to": "/prieteni",
                 "label": "Prieteni"
             },
@@ -170,14 +174,116 @@
     },
     "events": {
         "kicker": "Evenimente",
-        "title": "Un eveniment-pilot de activare urbană pentru Căuzași 2030.",
-        "body": [
-            "Secțiunea de eveniment comunitar poate fi, pentru Căuzași 2030, mai mult decât un simplu anunț de calendar. Poate fi prima demonstrație publică a felului în care ne imaginăm cartierul: mai viu, mai deschis, mai prietenos, mai atent la patrimoniu și la oameni. De aceea, propunem ca în jurul jumătății lunii septembrie 2026 să organizăm un eveniment-pilot de activare urbană, construit ca o invitație deschisă către comunitate, creativi, mici antreprenori și actori culturali din zonă.",
-            "Ne imaginăm un weekend în care străzile să capete, pentru câteva ore, un alt ritm. Nu unul grăbit și dominat exclusiv de trafic, ci unul de întâlnire, explorare și redescoperire. Un cartier în care poți participa la un tur ghidat printre case valoroase și povești uitate, apoi să te oprești la un mic târg de creativi, la un stand de artă, la o cafea bună sau la o discuție cu vecinii și business-urile locale.",
-            "Un cartier în care apar mini-concerte acustice, performance-uri, intervenții culturale discrete, ateliere pentru copii, zone de arts & crafts, food trucks atent curate și mici insule de stat, vorbit și respirat.",
-            "Scopul acestui eveniment nu este doar atmosfera. Este și testarea unei viziuni. Vrem să arătăm, concret, cum ar putea funcționa zona atunci când activezi resursele locale și creezi motive reale pentru care oamenii să iasă din casă și să stea împreună. Vrem să aducem laolaltă creativi din cartier, mici business-uri, muzicieni, ghizi, oameni de patrimoniu, antreprenori, voluntari și locuitori care pot contribui la energia locului.",
-            "Dacă faci parte din această lume – ai un mic business, creezi obiecte, ilustrații sau produse handmade, organizezi experiențe culturale, cânți, faci performance, teatru, storytelling, fotografie, gastronomie, băuturi artizanale sau pur și simplu ai o idee bună de activare – te invităm să te înscrii. Vom centraliza aplicațiile printr-un formular dedicat și vom selecta participanții astfel încât evenimentul să fie coerent, relevant și bine curatoriat.",
-            "Până la eveniment, site-ul poate afișa și un countdown, ca un mic semn că schimbarea nu este abstractă, ci are deja un orizont. Căuzași 2030 începe cu pași mici, dar foarte concreți. Iar acest eveniment poate fi unul dintre cele mai frumoase și convingătoare dintre ele."
+        "title": "Întâlniri care aduc cartierul la viață.",
+        "intro": "De la activări de stradă la momente culturale și întâlniri de cartier — aici anunțăm evenimentele Căuzași 2030.",
+        "readMoreLabel": "Citește mai mult",
+        "addToCalendarLabel": "Adaugă în calendarul tău",
+        "items": [
+            {
+                "slug": "vecini-pe-parfumului",
+                "title": "Vecini pe Parfumului",
+                "date": "26 septembrie 2026",
+                "location": "Strada Parfumului · Cartierul Căuzași, București",
+                "summary": "O zi dedicată cartierului: strada Parfumului se închide traficului și se deschide oamenilor. Ateliere, tururi ghidate, artă urbană, cină comunitară și cinema în aer liber — o invitație să îți cunoști vecinii.",
+                "calendar": {
+                    "start": "20260926",
+                    "end": "20260927"
+                },
+                "image": "/events/vecini-pe-parfumului/hero.jpg",
+                "imageAlt": "Oameni așezați pe iarbă, privindu-și cartierul la apus",
+                "kicker": "Eveniment comunitar",
+                "leadTitle": "O zi dedicată cartierului",
+                "body": [
+                    "Vecini pe Parfumului este o zi în care strada Parfumului se închide traficului și se deschide oamenilor.",
+                    "Pentru câteva ore, locuitorii cartierului Căuzași sunt invitați să participe la activități culturale și recreative și să își cunoască vecinii.",
+                    "Programul include ateliere pentru copii și adulți, tururi ghidate, spectacole, artă urbană, jocuri, o cină comunitară și o proiecție de film în aer liber, alături de participarea școlilor, instituțiilor culturale, afacerilor locale și organizațiilor din zonă."
+                ],
+                "gallery": [
+                    {
+                        "src": "/events/vecini-pe-parfumului/comunitate.jpg",
+                        "alt": "Vecini din cartier, așezați împreună pe o bancă"
+                    }
+                ],
+                "activities": {
+                    "title": "Ce pregătim",
+                    "items": [
+                        {
+                            "title": "Ateliere pentru copii",
+                            "description": "Activități creative, jocuri și activități educaționale."
+                        },
+                        {
+                            "title": "Ateliere pentru adulți",
+                            "description": "Actorie & improvizație, tango și alte activități."
+                        },
+                        {
+                            "title": "Tururi de cartier",
+                            "description": "Plimbări ghidate și povești despre Căuzași."
+                        },
+                        {
+                            "title": "Artă urbană",
+                            "description": "Mural și atelier de graffiti cu elevii școlilor din zonă."
+                        },
+                        {
+                            "title": "Jocuri & socializare",
+                            "description": "Campionat de table și alte activități pentru vecini."
+                        },
+                        {
+                            "title": "Cină comunitară",
+                            "description": "O masă lungă la care sunt invitați cel puțin 100 de oameni."
+                        },
+                        {
+                            "title": "Cinema în aer liber",
+                            "description": "Proiecție de film în parteneriat cu One World Romania."
+                        },
+                        {
+                            "title": "Afaceri locale",
+                            "description": "Standuri cu cafea, mâncare, băuturi și alte produse de cumpărat de la afacerile din cartier."
+                        },
+                        {
+                            "title": "Standul Asociației Cartier Viu",
+                            "description": "Informații despre inițiativă, colectare de contacte și harta participativă a cartierului."
+                        }
+                    ]
+                },
+                "goals": {
+                    "title": "Ce vrem să obținem",
+                    "items": [
+                        "Peste 500 de participanți la eveniment.",
+                        "Creșterea vizibilității Asociației Cartier Viu și informarea oamenilor despre inițiativă.",
+                        "O hartă participativă a problemelor, nevoilor și resurselor din Căuzași.",
+                        "O arhivă de povești și amintiri ale locuitorilor.",
+                        "Conectarea locuitorilor cu școlile, instituțiile culturale, afacerile și organizațiile din cartier.",
+                        "O comunitate mai închegată, în care vecinii se cunosc și se implică mai mult în viața cartierului.",
+                        "Vizibilitate publică pentru eveniment, inclusiv prin apariții în presă."
+                    ]
+                },
+                "involve": {
+                    "title": "Fii parte din proiect",
+                    "intro": "Vecini pe Parfumului este deschis organizațiilor, instituțiilor, afacerilor locale și oamenilor care vor să fie parte din acest proiect. Fiecare contribuție ne ajută să construim acest eveniment.",
+                    "items": [
+                        {
+                            "title": "Parteneriat",
+                            "description": "Implică-te în construirea evenimentului, propune o activitate, contribuie cu idei, resurse sau know-how."
+                        },
+                        {
+                            "title": "Sponsorizare financiară",
+                            "description": "Susține costurile de organizare și ajută-ne să facem posibil un eveniment accesibil pentru comunitatea din Căuzași."
+                        },
+                        {
+                            "title": "Produse și echipamente",
+                            "description": "Mese, scaune, sound system, materiale pentru ateliere, mural, proiecție și alte necesități."
+                        },
+                        {
+                            "title": "Servicii",
+                            "description": "Tipar, producție, logistică și alte servicii necesare evenimentului."
+                        },
+                        {
+                            "title": "Voluntariat",
+                            "description": "Ajută-ne înainte și în ziua evenimentului cu organizarea, logistica, activitățile și relația cu participanții."
+                        }
+                    ]
+                }
+            }
         ]
     },
     "team": {

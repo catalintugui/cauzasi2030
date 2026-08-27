@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { EventWelcomePopup } from "../components/ui/EventWelcomePopup";
 import { VisionSlider } from "../components/ui/VisionSlider";
 import { heritageSlides } from "../content/heritageSlides";
 import { streetSlides } from "../content/streetSlides";
@@ -15,6 +16,7 @@ export function HomePage() {
 
     return (
         <section className="home-page" aria-label={siteContent.home.title}>
+            <EventWelcomePopup />
             <article className="home-card">
                 <header className="home-card__header">
                     <p className="section-kicker">{siteContent.home.kicker}</p>
