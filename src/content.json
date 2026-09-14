@@ -282,7 +282,8 @@
                             "description": "Ajută-ne înainte și în ziua evenimentului cu organizarea, logistica, activitățile și relația cu participanții."
                         }
                     ]
-                }
+                },
+                "hidden": true
             }
         ]
     },

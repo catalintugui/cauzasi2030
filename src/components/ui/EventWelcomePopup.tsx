@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { eventPath, type EventItem } from "../../content/events";
 import {
     EVENT_WELCOME_STORAGE_KEY,
+    getFeaturedEvent,
     isEventPromoAvailable,
 } from "../../content/eventPromo";
 import { siteContent } from "../../content/siteContent";
@@ -15,7 +16,7 @@ type EventWelcomePopupProps = {
 };
 
 export function EventWelcomePopup({
-    event = siteContent.events.items[0],
+    event = getFeaturedEvent(),
 }: EventWelcomePopupProps) {
     const titleId = useId();
     const descriptionId = useId();

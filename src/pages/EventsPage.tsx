@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom";
 import { EventMeta } from "../components/ui/EventMeta";
-import { eventPath } from "../content/events";
+import { eventPath, getVisibleEvents } from "../content/events";
 import { siteContent } from "../content/siteContent";
 import { withBase } from "../utils/withBase";
 
 export function EventsPage() {
-    const { kicker, title, intro, readMoreLabel, items } = siteContent.events;
+    const { kicker, title, intro, readMoreLabel } = siteContent.events;
+    const items = getVisibleEvents();
 
     return (
         <section className="events-page page-section" aria-label={title}>

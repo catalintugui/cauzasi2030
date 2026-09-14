@@ -1,11 +1,10 @@
-import { siteContent } from "./siteContent";
-import { eventPath, type EventItem } from "./events";
+import { eventPath, getVisibleEvents, type EventItem } from "./events";
 
 export const EVENT_WELCOME_STORAGE_KEY = "cauzasi-event-welcome-seen";
 
-/** Inclusive through end of 26 Sept 2026 EEST (UTC+3). */
+/** Promo deactivated — set a future date to re-enable popup + banner. */
 export const EVENT_PROMO_AVAILABLE_UNTIL = new Date(
-    "2026-09-27T00:00:00+03:00",
+    "2020-01-01T00:00:00+03:00",
 );
 
 export function isEventPromoAvailable(now = new Date()): boolean {
@@ -13,7 +12,7 @@ export function isEventPromoAvailable(now = new Date()): boolean {
 }
 
 export function getFeaturedEvent(): EventItem | undefined {
-    return siteContent.events.items[0];
+    return getVisibleEvents()[0];
 }
 
 export function getFeaturedEventPath(): string | undefined {
