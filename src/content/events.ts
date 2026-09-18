@@ -1,13 +1,22 @@
 import { siteContent } from "./siteContent";
 
-export type EventItem = (typeof siteContent.events.items)[number];
+export type EventGalleryImage = {
+    src: string;
+    alt: string;
+};
+
+type RawEventItem = (typeof siteContent.events.items)[number];
+
+export type EventItem = Omit<RawEventItem, "gallery"> & {
+    gallery?: EventGalleryImage[];
+};
 
 function isEventVisible(event: EventItem): boolean {
     return !("hidden" in event && event.hidden);
 }
 
 export function getVisibleEvents(): EventItem[] {
-    return siteContent.events.items.filter(isEventVisible);
+    return siteContent.events.items.filter(isEventVisible) as EventItem[];
 }
 
 export function getEventBySlug(slug: string): EventItem | undefined {
