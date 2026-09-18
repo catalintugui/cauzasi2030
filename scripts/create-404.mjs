@@ -10,7 +10,7 @@ const spaRoutes = [
   "voluntari",
   "actiuni",
   "evenimente",
-  "evenimente/vecini-pe-parfumului",
+  "evenimente/mahala-negustoreasca",
   "prieteni",
   "echipa",
   "contact",

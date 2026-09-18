@@ -2,9 +2,9 @@ import { eventPath, getVisibleEvents, type EventItem } from "./events";
 
 export const EVENT_WELCOME_STORAGE_KEY = "cauzasi-event-welcome-seen";
 
-/** Promo deactivated — set a future date to re-enable popup + banner. */
+/** Inclusive through end of 26 Sept 2026 EEST (UTC+3). */
 export const EVENT_PROMO_AVAILABLE_UNTIL = new Date(
-    "2020-01-01T00:00:00+03:00",
+    "2026-09-27T00:00:00+03:00",
 );
 
 export function isEventPromoAvailable(now = new Date()): boolean {

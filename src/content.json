@@ -180,110 +180,77 @@
         "addToCalendarLabel": "Adaugă în calendarul tău",
         "items": [
             {
-                "slug": "vecini-pe-parfumului",
-                "title": "Vecini pe Parfumului",
-                "date": "26 septembrie 2026",
-                "location": "Strada Parfumului · Cartierul Căuzași, București",
-                "summary": "O zi dedicată cartierului: strada Parfumului se închide traficului și se deschide oamenilor. Ateliere, tururi ghidate, artă urbană, cină comunitară și cinema în aer liber — o invitație să îți cunoști vecinii.",
+                "slug": "mahala-negustoreasca",
+                "title": "Descoperă comorile ascunse ale mahalalei negustorești",
+                "date": "26 septembrie 2026 · 11:00–19:00",
+                "location": "Căuzași – Parfumului – Lucaci, București",
+                "summary": "O zi de tur ghidat, pauză la CIZ Wine Bar, vizită privată la Muzeul Recordurilor Românești și proiecție de scurtmetraje One World Romania în curtea Bisericii „Radu Ceauș”.",
                 "calendar": {
                     "start": "20260926",
                     "end": "20260927"
                 },
-                "image": "/events/vecini-pe-parfumului/hero.jpg",
-                "imageAlt": "Oameni așezați pe iarbă, privindu-și cartierul la apus",
-                "kicker": "Eveniment comunitar",
-                "leadTitle": "O zi dedicată cartierului",
+                "image": "/events/mahala-negustoreasca/hero.jpg",
+                "imageAlt": "Afișul evenimentului: stradă istorică din mahalaua negustorească, cu felinar și cupola bisericii",
+                "kicker": "Eveniment cultural",
+                "leadTitle": "O zi prin Căuzași, Parfumului și Lucaci",
                 "body": [
-                    "Vecini pe Parfumului este o zi în care strada Parfumului se închide traficului și se deschide oamenilor.",
-                    "Pentru câteva ore, locuitorii cartierului Căuzași sunt invitați să participe la activități culturale și recreative și să își cunoască vecinii.",
-                    "Programul include ateliere pentru copii și adulți, tururi ghidate, spectacole, artă urbană, jocuri, o cină comunitară și o proiecție de film în aer liber, alături de participarea școlilor, instituțiilor culturale, afacerilor locale și organizațiilor din zonă."
+                    "Pe 26 septembrie 2026 te invităm să descoperi comorile ascunse ale mahalalei negustorești — un traseu prin Căuzași, Parfumului și Lucaci, cu povești, gust și cinema.",
+                    "Ziua începe cu un tur ghidat de arhitectură și istorie, continuă cu o pauză gurmandă la CIZ Wine Bar & More, o vizită privată la Muzeul Recordurilor Românești și se încheie cu o proiecție de scurtmetraje One World Romania."
                 ],
-                "gallery": [
-                    {
-                        "src": "/events/vecini-pe-parfumului/comunitate.jpg",
-                        "alt": "Vecini din cartier, așezați împreună pe o bancă"
-                    }
-                ],
+                "gallery": [],
                 "activities": {
-                    "title": "Ce pregătim",
+                    "title": "Programul zilei",
                     "items": [
                         {
-                            "title": "Ateliere pentru copii",
-                            "description": "Activități creative, jocuri și activități educaționale."
+                            "title": "11:00 – 14:00 · Tur ghidat",
+                            "description": "Povești din mahalaua Căuzași și împrejurimi — tur de arhitectură, istorie și povești prin vechiul Cartier Evreiesc, cu București din Povești (Andrei Neagu). Donație recomandată: 80 lei. Punctul de întâlnire se confirmă la rezervare."
                         },
                         {
-                            "title": "Ateliere pentru adulți",
-                            "description": "Actorie & improvizație, tango și alte activități."
+                            "title": "14:00 – 16:00 · Pauză la CIZ Wine Bar & More",
+                            "description": "După tur, ne oprim pe Strada Radu Ceauș 7 pentru un pahar de vin, ceva bun de mâncare și o pauză de conversație. Consumația se achită separat; meniul pe www.cizwinebar.ro. Pregătim și o surpriză din partea casei."
                         },
                         {
-                            "title": "Tururi de cartier",
-                            "description": "Plimbări ghidate și povești despre Căuzași."
+                            "title": "16:00 – 18:00 · Muzeul Recordurilor Românești",
+                            "description": "Vizită privată pe Strada Parfumului 25: peste 100 de colecții și recorduri Guinness — de la gramofoane și aparate de fotografiat la tirbușoane și obiecte cu tema Florii de Colț. Ghidaj gratuit și tarif special: 35 lei/persoană pentru participanții la tur."
                         },
                         {
-                            "title": "Artă urbană",
-                            "description": "Mural și atelier de graffiti cu elevii școlilor din zonă."
-                        },
-                        {
-                            "title": "Jocuri & socializare",
-                            "description": "Campionat de table și alte activități pentru vecini."
-                        },
-                        {
-                            "title": "Cină comunitară",
-                            "description": "O masă lungă la care sunt invitați cel puțin 100 de oameni."
-                        },
-                        {
-                            "title": "Cinema în aer liber",
-                            "description": "Proiecție de film în parteneriat cu One World Romania."
-                        },
-                        {
-                            "title": "Afaceri locale",
-                            "description": "Standuri cu cafea, mâncare, băuturi și alte produse de cumpărat de la afacerile din cartier."
-                        },
-                        {
-                            "title": "Standul Asociației Cartier Viu",
-                            "description": "Informații despre inițiativă, colectare de contacte și harta participativă a cartierului."
+                            "title": "19:00 · Proiecție One World Romania",
+                            "description": "Scurtmetraje și conversație în curtea Bisericii „Radu Ceauș” (Strada Radu Ceauș 6). Acces gratuit. Pe program: Casa noastră ca o floare; 35A; Pentru strănepoți, încă ceva despre București; Aici a fost un parc."
                         }
                     ]
                 },
                 "goals": {
-                    "title": "Ce vrem să obținem",
+                    "title": "Informații practice",
                     "items": [
-                        "Peste 500 de participanți la eveniment.",
-                        "Creșterea vizibilității Asociației Cartier Viu și informarea oamenilor despre inițiativă.",
-                        "O hartă participativă a problemelor, nevoilor și resurselor din Căuzași.",
-                        "O arhivă de povești și amintiri ale locuitorilor.",
-                        "Conectarea locuitorilor cu școlile, instituțiile culturale, afacerile și organizațiile din cartier.",
-                        "O comunitate mai închegată, în care vecinii se cunosc și se implică mai mult în viața cartierului.",
-                        "Vizibilitate publică pentru eveniment, inclusiv prin apariții în presă."
+                        "Data: 26 septembrie 2026.",
+                        "Tur ghidat (11:00–14:00): donație recomandată 80 lei; punctul de întâlnire se confirmă la rezervare.",
+                        "CIZ Wine Bar & More — Strada Radu Ceauș 7; consumația se achită separat.",
+                        "Muzeul Recordurilor Românești — Strada Parfumului 25; 35 lei/persoană pentru participanții la tur.",
+                        "Proiecție One World Romania — Strada Radu Ceauș 6; acces gratuit."
                     ]
                 },
                 "involve": {
-                    "title": "Fii parte din proiect",
-                    "intro": "Vecini pe Parfumului este deschis organizațiilor, instituțiilor, afacerilor locale și oamenilor care vor să fie parte din acest proiect. Fiecare contribuție ne ajută să construim acest eveniment.",
+                    "title": "Parteneri",
+                    "intro": "Evenimentul este organizat de Căuzași 2030 împreună cu partenerii care deschid porțile cartierului pentru o zi de povești, gust și cinema.",
                     "items": [
                         {
-                            "title": "Parteneriat",
-                            "description": "Implică-te în construirea evenimentului, propune o activitate, contribuie cu idei, resurse sau know-how."
+                            "title": "București din Povești",
+                            "description": "Tur ghidat de arhitectură, istorie și povești prin Căuzași, Lucaci și Parfumului."
                         },
                         {
-                            "title": "Sponsorizare financiară",
-                            "description": "Susține costurile de organizare și ajută-ne să facem posibil un eveniment accesibil pentru comunitatea din Căuzași."
+                            "title": "CIZ Wine Bar & More",
+                            "description": "Pauză gurmandă pe Strada Radu Ceauș 7, după turul prin cartier."
                         },
                         {
-                            "title": "Produse și echipamente",
-                            "description": "Mese, scaune, sound system, materiale pentru ateliere, mural, proiecție și alte necesități."
+                            "title": "Muzeul Recordurilor Românești",
+                            "description": "Vizită privată pe Strada Parfumului 25, cu ghidaj și tarif special pentru participanți."
                         },
                         {
-                            "title": "Servicii",
-                            "description": "Tipar, producție, logistică și alte servicii necesare evenimentului."
-                        },
-                        {
-                            "title": "Voluntariat",
-                            "description": "Ajută-ne înainte și în ziua evenimentului cu organizarea, logistica, activitățile și relația cu participanții."
+                            "title": "One World Romania",
+                            "description": "Proiecție de scurtmetraje în curtea Bisericii „Radu Ceauș”, cu acces gratuit."
                         }
                     ]
-                },
-                "hidden": true
+                }
             }
         ]
     },
