@@ -1771,6 +1771,7 @@ h3 {
 .action-card p,
 .contact-panel p {
   color: var(--color-text-muted);
+  white-space: pre-line;
 }
 
 .action-section {

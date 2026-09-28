@@ -27,7 +27,7 @@ export function GetInvolvedPage({ compact = false }: GetInvolvedPageProps) {
         })),
         ...(donate?.methods.map((method) => ({
             title: method.title,
-            description: method.body.join(" "),
+            description: method.body.join("\n"),
             href: method.action.href,
             label: method.action.label,
             internal: true,

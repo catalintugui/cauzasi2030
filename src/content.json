@@ -368,7 +368,10 @@
                     "title": "Virament bancar",
                     "body": [
                         "Donează prin transfer bancar către Asociația Cartier Viu.",
-                        "Scrie-ne la salut@cauzasi.ro pentru detaliile de cont (IBAN) și mențiunea pe care o poți folosi la plată."
+                        "Titular cont: ASOCIATIA CARTIER VIU",
+                        "Număr cont: RO66 INGB 0000 9999 2071 2327",
+                        "Banca: ING Bank",
+                        "BIC: INGBROBU"
                     ],
                     "action": {
                         "label": "Solicită detaliile de donație",
