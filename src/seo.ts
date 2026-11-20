@@ -65,7 +65,7 @@ const pages: Record<string, PageSeo> = {
 
 const notFoundSeo: PageSeo = {
     path: "/",
-    title: `Pagina nu a fost găsită — ${brand}`,
+    title: `Oups... — ${brand}`,
     description: siteContent.notFound.body,
     noindex: true,
 };

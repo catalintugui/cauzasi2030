@@ -4,6 +4,12 @@ DirectoryIndex index.html
   Options -MultiViews
 </IfModule>
 
+ErrorDocument 400 /400.shtml
+ErrorDocument 401 /401.shtml
+ErrorDocument 403 /403.shtml
+ErrorDocument 404 /404.shtml
+ErrorDocument 500 /500.shtml
+
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
@@ -20,7 +26,7 @@ DirectoryIndex index.html
   # Avoid indexing /index.html as a separate URL
   RewriteRule ^index\.html$ / [R=301,L]
 
-  # SPA fallback (no FallbackResource / ErrorDocument — those can loop)
+  # SPA fallback for client routes
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteCond %{REQUEST_FILENAME} !-l

@@ -2,20 +2,27 @@ import { Link } from "react-router-dom";
 import { siteContent } from "../content/siteContent";
 
 export function NotFoundPage() {
+    const { notFound } = siteContent;
+
     return (
-        <section className="intro-panel page-panel" aria-label={siteContent.notFound.kicker}>
+        <section
+            className="intro-panel page-panel error-panel"
+            aria-label={notFound.title}
+        >
             <div>
-                <p className="section-kicker">{siteContent.notFound.kicker}</p>
-                <h1>{siteContent.notFound.title}</h1>
+                {notFound.kicker ? (
+                    <p className="section-kicker">{notFound.kicker}</p>
+                ) : null}
+                <h1>{notFound.title}</h1>
             </div>
             <div className="intro-copy">
-                <p>{siteContent.notFound.body}</p>
+                <p>{notFound.body}</p>
                 <div className="hero-actions">
                     <Link
                         className="button button-primary"
-                        to={siteContent.notFound.cta.to}
+                        to={notFound.cta.to}
                     >
-                        {siteContent.notFound.cta.label}
+                        {notFound.cta.label}
                     </Link>
                 </div>
             </div>

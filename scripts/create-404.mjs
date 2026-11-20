@@ -201,7 +201,7 @@ if (!isRoot) {
 </html>
 `;
   writeFileSync(join("dist", "404.html"), redirect404);
-} else if (!readFileSync(join("dist", "404.html"), "utf8").includes("Pagina nu a fost")) {
+} else if (!readFileSync(join("dist", "404.html"), "utf8").includes("Oups...")) {
   copyFileSync(join("public", "404.html"), join("dist", "404.html"));
 }
 
@@ -231,18 +231,28 @@ const hostRedirect = isRoot
   : `# GitHub Pages / preview: do not force the production host.
 `;
 
+const errorDocuments = isRoot
+  ? `ErrorDocument 400 /400.shtml
+ErrorDocument 401 /401.shtml
+ErrorDocument 403 /403.shtml
+ErrorDocument 404 /404.shtml
+ErrorDocument 500 /500.shtml
+`
+  : "";
+
 const htaccess = `DirectoryIndex index.html
 
 <IfModule mod_negotiation.c>
   Options -MultiViews
 </IfModule>
 
+${errorDocuments}
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase ${rewriteBase}
 
   ${hostRedirect}
-  # SPA fallback only — avoid FallbackResource + ErrorDocument loops
+  # SPA fallback for client routes
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteCond %{REQUEST_FILENAME} !-l

@@ -464,9 +464,9 @@
         "rights": "Toate drepturile rezervate."
     },
     "notFound": {
-        "kicker": "404",
-        "title": "Pagina nu a fost găsită.",
-        "body": "Adresa nu există încă. Întoarce-te la pagina principală sau folosește navigația pentru a ajunge la secțiunea dorită.",
+        "kicker": "",
+        "title": "Oups...",
+        "body": "Ceva nu a funcționat.",
         "cta": {
             "label": "Înapoi la pagina principală",
             "to": "/"
