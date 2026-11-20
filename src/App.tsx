@@ -3,6 +3,8 @@ import { Outlet, Route, Routes, useLocation } from "react-router-dom";
 import { EventPromoBanner } from "./components/layout/EventPromoBanner";
 import { Footer } from "./components/layout/Footer";
 import { Navbar } from "./components/layout/Navbar";
+import { VotePromoBanner } from "./components/layout/VotePromoBanner";
+import { VoteWelcomePopup } from "./components/ui/VoteWelcomePopup";
 import { ContactPage } from "./pages/ContactPage";
 import { EventDetailPage } from "./pages/EventDetailPage";
 import { EventsPage } from "./pages/EventsPage";
@@ -14,6 +16,7 @@ import { SponsorsPage } from "./pages/SponsorsPage";
 import { TeamPage } from "./pages/TeamPage";
 import { VolunteersPage } from "./pages/VolunteersPage";
 import { EventPromoProvider } from "./context/EventPromoContext";
+import { VotePromoProvider } from "./context/VotePromoContext";
 import { useScrollPerformance } from "./hooks/useScrollPerformance";
 import { applyPageSeo } from "./seo";
 import "./App.css";
@@ -50,15 +53,19 @@ function MainLayout() {
 
     return (
         <EventPromoProvider>
-            <main className="page-shell">
-                <ScrollToTop />
-                <Navbar />
-                <EventPromoBanner />
-                <div className="app-content">
-                    <Outlet />
-                </div>
-                <Footer />
-            </main>
+            <VotePromoProvider>
+                <main className="page-shell">
+                    <ScrollToTop />
+                    <Navbar />
+                    <VotePromoBanner />
+                    <EventPromoBanner />
+                    <div className="app-content">
+                        <Outlet />
+                    </div>
+                    <Footer />
+                    <VoteWelcomePopup />
+                </main>
+            </VotePromoProvider>
         </EventPromoProvider>
     );
 }

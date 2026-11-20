@@ -684,6 +684,64 @@
   background: var(--color-button-hover);
 }
 
+.vote-promo-banner__hint {
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: 0.92rem;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.vote-promo-banner__actions {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.vote-promo-banner__close {
+  display: inline-grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border: 1px solid var(--glass-border);
+  border-radius: 999px;
+  color: var(--color-primary);
+  background: rgba(255, 255, 255, 0.72);
+  font-size: 1.55rem;
+  line-height: 1;
+  cursor: pointer;
+  transition:
+    background 180ms ease,
+    transform 180ms ease;
+}
+
+.vote-promo-banner__close:hover {
+  background: var(--color-white);
+  transform: translateY(-1px);
+}
+
+.vote-welcome__howto {
+  font-weight: 650;
+  color: var(--color-text);
+}
+
+.vote-welcome__source {
+  margin: 4px 0 0;
+  font-size: 0.95rem;
+}
+
+.vote-welcome__source a {
+  color: var(--color-link);
+  font-weight: 650;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.vote-welcome__source a:hover {
+  color: var(--color-link-hover);
+}
+
 .brand {
   display: inline-flex;
   align-items: center;
@@ -2785,6 +2843,14 @@ h3 {
 
   .event-promo-banner__link {
     width: 100%;
+  }
+
+  .vote-promo-banner__actions {
+    width: 100%;
+  }
+
+  .vote-promo-banner__actions .event-promo-banner__link {
+    flex: 1;
   }
 
   .event-welcome__dialog {

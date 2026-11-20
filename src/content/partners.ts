@@ -31,6 +31,11 @@ export const partners: Partner[] = [
         logo: "https://www.google.com/s2/favicons?domain=instagram.com&sz=256",
     },
     {
+        name: "Atelier de Plano",
+        url: "https://www.deplano.ro/",
+        logo: "https://www.google.com/s2/favicons?domain=deplano.ro&sz=256",
+    },
+    {
         name: "BrandTailors",
         url: "https://brandtailors.com/",
         logo: "https://www.google.com/s2/favicons?domain=brandtailors.com&sz=256",
@@ -78,6 +83,11 @@ export const partners: Partner[] = [
         name: "FCER – Federația Comunităților Evreiești din România",
         url: "https://www.jewishfed.ro/",
         logo: "https://www.google.com/s2/favicons?domain=jewishfed.ro&sz=256",
+    },
+    {
+        name: "Filofi și Trandafir",
+        url: "https://www.filofisitrandafir.ro/",
+        logo: "https://www.google.com/s2/favicons?domain=filofisitrandafir.ro&sz=256",
     },
     {
         name: "Fonduri Structurale",
