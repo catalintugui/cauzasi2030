@@ -7,17 +7,14 @@ import {
     type ReactNode,
 } from "react";
 import {
-    hasDismissedVoteBanner,
     hasDismissedVoteWelcome,
     isVotePromoAvailable,
-    markVoteBannerDismissed,
     markVoteWelcomeDismissed,
 } from "../content/votePromo";
 
 type VotePromoContextValue = {
     setWelcomeOpen: (open: boolean) => void;
     dismissWelcome: () => void;
-    dismissBanner: () => void;
     shouldShowBanner: boolean;
 };
 
@@ -28,9 +25,6 @@ export function VotePromoProvider({ children }: { children: ReactNode }) {
     const [hasDismissedWelcome, setHasDismissedWelcome] = useState(() =>
         typeof window === "undefined" ? false : hasDismissedVoteWelcome(),
     );
-    const [hasDismissedBanner, setHasDismissedBanner] = useState(() =>
-        typeof window === "undefined" ? false : hasDismissedVoteBanner(),
-    );
 
     const dismissWelcome = useCallback(() => {
         markVoteWelcomeDismissed();
@@ -38,22 +32,15 @@ export function VotePromoProvider({ children }: { children: ReactNode }) {
         setWelcomeOpen(false);
     }, []);
 
-    const dismissBanner = useCallback(() => {
-        markVoteBannerDismissed();
-        setHasDismissedBanner(true);
-    }, []);
-
-    const shouldShowBanner =
-        isVotePromoAvailable() && hasDismissedWelcome && !hasDismissedBanner;
+    const shouldShowBanner = isVotePromoAvailable() && hasDismissedWelcome;
 
     const value = useMemo(
         () => ({
             setWelcomeOpen,
             dismissWelcome,
-            dismissBanner,
             shouldShowBanner,
         }),
-        [dismissBanner, dismissWelcome, shouldShowBanner],
+        [dismissWelcome, shouldShowBanner],
     );
 
     return (

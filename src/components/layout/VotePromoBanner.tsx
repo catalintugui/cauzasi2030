@@ -2,7 +2,7 @@ import { votePromo } from "../../content/votePromo";
 import { useVotePromo } from "../../context/VotePromoContext";
 
 export function VotePromoBanner() {
-    const { shouldShowBanner, dismissBanner } = useVotePromo();
+    const { shouldShowBanner } = useVotePromo();
 
     if (!shouldShowBanner) {
         return null;
@@ -29,14 +29,6 @@ export function VotePromoBanner() {
                     >
                         {votePromo.voteLabel}
                     </a>
-                    <button
-                        className="vote-promo-banner__close"
-                        type="button"
-                        aria-label="Închide anunțul"
-                        onClick={dismissBanner}
-                    >
-                        ×
-                    </button>
                 </div>
             </div>
         </aside>

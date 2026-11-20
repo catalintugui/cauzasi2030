@@ -1,5 +1,4 @@
 export const VOTE_WELCOME_STORAGE_KEY = "cauzasi-vote-welcome-seen";
-export const VOTE_BANNER_STORAGE_KEY = "cauzasi-vote-banner-dismissed";
 
 /** Inclusive through end of 6 Dec 2026 EET (UTC+2). */
 export const VOTE_PROMO_AVAILABLE_UNTIL = new Date(
@@ -26,7 +25,7 @@ export const votePromo = {
         "https://www.instagram.com/p/Df4q7I3DNIZ/",
     image: "/promo/cartierul-perfect-vote.jpg",
     imageAlt:
-        "Concept vizual pentru parcul de cartier propus la Matei Basarab 40",
+        "Înainte și după: parcarea de la Matei Basarab 40 transformată în parc de cartier",
 } as const;
 
 export function isVotePromoAvailable(now = new Date()): boolean {
@@ -44,22 +43,6 @@ export function hasDismissedVoteWelcome(): boolean {
 export function markVoteWelcomeDismissed(): void {
     try {
         window.localStorage.setItem(VOTE_WELCOME_STORAGE_KEY, "1");
-    } catch {
-        // ignore quota / private mode failures
-    }
-}
-
-export function hasDismissedVoteBanner(): boolean {
-    try {
-        return Boolean(window.localStorage.getItem(VOTE_BANNER_STORAGE_KEY));
-    } catch {
-        return false;
-    }
-}
-
-export function markVoteBannerDismissed(): void {
-    try {
-        window.localStorage.setItem(VOTE_BANNER_STORAGE_KEY, "1");
     } catch {
         // ignore quota / private mode failures
     }
