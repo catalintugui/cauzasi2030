@@ -24,5 +24,5 @@ export function getEventBySlug(slug: string): EventItem | undefined {
 }
 
 export function eventPath(slug: string): string {
-    return `/evenimente/${slug}`;
+    return `/evenimente/${slug}/`;
 }

@@ -4,18 +4,25 @@ DirectoryIndex index.html
   Options -MultiViews
 </IfModule>
 
-<IfModule mod_dir.c>
-  FallbackResource /index.html
-</IfModule>
-
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
-  RewriteRule ^index\.html$ - [L]
+
+  # www → apex (HTTPS)
+  RewriteCond %{HTTP_HOST} ^www\.cauzasi\.ro$ [NC]
+  RewriteRule ^ https://cauzasi.ro%{REQUEST_URI} [R=301,L]
+
+  # HTTP → HTTPS (skip when TLS is terminated upstream)
+  RewriteCond %{HTTPS} !=on
+  RewriteCond %{HTTP:X-Forwarded-Proto} !https [NC]
+  RewriteRule ^ https://cauzasi.ro%{REQUEST_URI} [R=301,L]
+
+  # Avoid indexing /index.html as a separate URL
+  RewriteRule ^index\.html$ / [R=301,L]
+
+  # SPA fallback (no FallbackResource / ErrorDocument — those can loop)
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteCond %{REQUEST_FILENAME} !-l
   RewriteRule ^ /index.html [L]
 </IfModule>
-
-ErrorDocument 404 /index.html

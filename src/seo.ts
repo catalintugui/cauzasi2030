@@ -100,7 +100,10 @@ export function absoluteUrl(path: string): string {
     if (path === "/") {
         return `${SITE_ORIGIN}/`;
     }
-    return `${SITE_ORIGIN}${path.startsWith("/") ? path : `/${path}`}`;
+    const normalized = path.startsWith("/") ? path : `/${path}`;
+    // Match Apache directory URLs (…/harta/ → harta/index.html).
+    const withSlash = normalized.endsWith("/") ? normalized : `${normalized}/`;
+    return `${SITE_ORIGIN}${withSlash}`;
 }
 
 function upsertMeta(

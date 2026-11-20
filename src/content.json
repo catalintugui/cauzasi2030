@@ -15,31 +15,31 @@
                 "label": "Căuzași 2030"
             },
             {
-                "to": "/harta",
+                "to": "/harta/",
                 "label": "Hartă"
             },
             {
-                "to": "/voluntari",
+                "to": "/voluntari/",
                 "label": "Voluntari"
             },
             {
-                "to": "/actiuni",
+                "to": "/actiuni/",
                 "label": "Acțiuni"
             },
             {
-                "to": "/evenimente",
+                "to": "/evenimente/",
                 "label": "Evenimente"
             },
             {
-                "to": "/prieteni",
+                "to": "/prieteni/",
                 "label": "Prieteni"
             },
             {
-                "to": "/echipa",
+                "to": "/echipa/",
                 "label": "Echipa"
             },
             {
-                "to": "/contact",
+                "to": "/contact/",
                 "label": "Contact"
             }
         ]
@@ -120,7 +120,7 @@
         },
         "cta": {
             "label": "Implică-te",
-            "to": "/actiuni"
+            "to": "/actiuni/"
         }
     },
     "about": {
@@ -456,7 +456,7 @@
         },
         "cta": {
             "label": "Implică-te",
-            "to": "/actiuni"
+            "to": "/actiuni/"
         }
     },
     "footer": {

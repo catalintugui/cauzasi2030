@@ -13,7 +13,7 @@ export function EventDetailPage() {
     const event = slug ? getEventBySlug(slug) : undefined;
 
     if (!event) {
-        return <Navigate replace to="/evenimente" />;
+        return <Navigate replace to="/evenimente/" />;
     }
 
     const calendarUrl = getGoogleCalendarUrl(event);
@@ -121,7 +121,7 @@ export function EventDetailPage() {
             </section>
 
             <p className="event-detail__back">
-                <Link to="/evenimente">← Toate evenimentele</Link>
+                <Link to="/evenimente/">← Toate evenimentele</Link>
             </p>
         </article>
     );
